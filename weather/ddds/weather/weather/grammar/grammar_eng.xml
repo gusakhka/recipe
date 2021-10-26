@@ -42,54 +42,24 @@
   </question>
 
 <!-- Questions about parameters -->
-  <question speaker="system" predicate="query_search" type="wh_question">what do you feel like eating</question>
-  <question speaker="system" predicate="meal_type_search" type="wh_question">what kind of meal, like main course or salad</question>
-  <question speaker="system" predicate="cuisine_search" type="wh_question">a specific cuisine, like italian or mexican</question>
-  <question speaker="system" predicate="diet_search" type="wh_question">any specific diet, like vegan or vegetarian</question>
+  <question speaker="system" predicate="query_search" type="wh_question">What do you feel like eating</question>
+  <question speaker="system" predicate="meal_type_search" type="wh_question">What kind of meal, like main course or salad</question>
+  <question speaker="system" predicate="cuisine_search" type="wh_question">A specific cuisine, like italian or mexican</question>
+  <question speaker="system" predicate="diet_search" type="wh_question">Any specific diet, like vegan or vegetarian</question>
+  <question speaker="system" predicate="intolerances_search" type="wh_question">Do you have any allergies</question>
+
 
 <!-- Starting question -->
   <!-- <question speaker="all" predicate="simple_recipe" type="wh_question">a simple recipe</question> -->
   <question speaker="all" predicate="recipe" type="wh_question">a recipe</question>
-  <question speaker="all" predicate="ask_about_diet" type="wh_question">ask about diet</question>
-  <question speaker="all" predicate="ask_about_meal_type" type="wh_question">ask about meal type</question>
-  <question speaker="all" predicate="ask_about_intolerances" type="wh_question">ask about intolerances</question>
 
 <!-- Answer -->
-  <!-- <answer speaker="system" predicate="simple_recipe">The ingredients are <slot predicate="simple_recipe"/></answer> -->
   <answer speaker="system" predicate="recipe"> Ok, <slot predicate="recipe"/></answer>
 
-  <question speaker="user" predicate="ask_about_meal_type" type="wh_question">
-    <one-of>
-      <item>what are the meals</item>
-      <item>what kind of meal types</item>
-      <item>what meals</item>
-      <item>what meal</item>
-      <item>what meal type</item>
-      <item>what meal types</item>
-    </one-of>
-  </question>
 
-  <question speaker="user" predicate="ask_about_diet" type="wh_question">
-    <one-of>
-      <item>what are the diets</item>
-      <item>what diets</item>
-      <item>what diet</item>
-      <item>what kind of diets</item>
-    </one-of>
-  </question>
-
-  <question speaker="user" predicate="ask_about_intolerances" type="wh_question">
-    <one-of>
-      <item>what intolerances</item>
-      <item>what allergies</item>
-      <item>what kind of intolerances</item>
-      <item>what intolerances</item>
-    </one-of>
-  </question>
-
-  <answer speaker="system" predicate="ask_about_meal_type"> Main course, side dish, dessert, appetizer, salad, break, breakfast, soup, beverage, sauce and drinks</answer>
-  <answer speaker="system" predicate="ask_about_diet">Pescatarian, lacto-vegetarian, ovo-vegetarian vegan or vegetarian</answer>
-  <answer speaker="system" predicate="ask_about_intolerances"> dairy, egg, gluten, peanuts, sesame, seafood, shellfish, soy or wheat</answer>
+<!--  <answer speaker="system" predicate="ask_about_meal_type"> Main course, side dish, dessert, appetizer, salad, break, breakfast, soup, beverage, sauce and drinks</answer>-->
+<!--  <answer speaker="system" predicate="ask_about_diet">Pescatarian, lacto-vegetarian, ovo-vegetarian vegan or vegetarian</answer>-->
+<!--  <answer speaker="system" predicate="ask_about_intolerances"> dairy, egg, gluten, peanuts, sesame, seafood, shellfish, soy or wheat</answer>-->
 
   <individual name="african">african</individual>
   <individual name="chinese">chinese</individual>
@@ -107,7 +77,14 @@
       <item>lebanese</item>
     </one-of>
   </individual>
-  <individual name="american">american</individual>
+  <individual name="american">
+    <one-of>
+      <item>american</item>
+      <item>USA</item>
+      <item>usa</item>
+      <item>American</item>
+    </one-of>
+  </individual>
   <individual name="thai">thai</individual>
   <individual name="nordic">
     <one-of>
@@ -184,6 +161,15 @@
       <item>soy-sauce</item>
     </one-of>
   </individual>
+  <individual name="onion">
+    <one-of>
+      <item>onion</item>
+      <item>lok</item>
+      <item>Onion</item>
+    </one-of>
+  </individual>
+  <individual name="garlic">garlic</individual>
+
 
   <individual name="main_course">main course</individual>
   <individual name="side_dish">side dish</individual>

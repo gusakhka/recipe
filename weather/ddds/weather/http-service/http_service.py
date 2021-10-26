@@ -183,42 +183,62 @@ def get_data(query, cuisine, diet, meal_type, intolerances):
         meal_type = None
     if intolerances == "no":
         intolerances = None
-
-
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search"
-
     querystring = {"query": "query", "cuisine": "cuisine", "diet": "diet",
                    "intolerances": "intolerances", "type": "meal_type", }
-
     headers = {
         'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
         'x-rapidapi-key': "6c9ee808bamshe34b62dbfdbf169p1600c8jsn69ba74f35b5a"
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
-    meal = json.loads(response.content)
-    print(str(meal),"---------")
+    print(response.json)
+    return response.json()
+    #meal = json.loads(response.content)
+    #print(str(meal),"---------")
 
-    return meal
+    #return meal
+
 
     #print(response.text)
 
-    @app.route("/recipe", methods=['POST'])
-    def recipe():
-        payload = request.get_json()
-        city = payload["context"]["facts"]["city_to_search"]["grammar_entry"]
-        country = payload["context"]["facts"]["country_to_search"]["grammar_entry"]
-        city, country = str(city), str(country)
+@app.route("/recipe", methods=['POST'])
 
-        if 'units' in payload["context"]["facts"]:
-            unit = payload["context"]["facts"]["units"]["grammar_entry"]
-            unit_str = str(unit)  # "metric"or"standard"or"imperial"
-        else:
-            unit_str = 'metric'  # default
+def recipe(self, query, cuisine, diet, meal_type, intolerances):
+    recipe_data = self.device.get_data(query, cuisine, diet, meal_type, intolerances)
+        # If response returns no recipes, return string
+    if len(recipe_data['results']) == 0:
+        return ["sorry, no recipes found"]
 
-        ans_data = get_data(city, country, unit=unit_str)
-        temp_ans_data = ans_data['main']['temp']
-        temp_ans_datastr = str(temp_ans_data)
-        meal = str(get_data())
-        return query_response(value=meal, grammar_entry=None)
+        first_recipe = recipe_data['results'][0]
+        first_recipe_id = first_recipe['id']
+        first_recipe_title = first_recipe['title']
+
+        ingredients_data = self.device.get_data(first_recipe_id)
+        ingredients_list = []
+        ingredients = ingredients_data['extendedIngredients']
+        for i in range(len(ingredients)):
+            name = ingredients[i]['name']
+
+            amount = ingredients[i]['amount']
+            if (amount).is_integer():  # format into int without floating point if eg. 1.0 dl
+                amount = str(int(amount))
+            else:
+                amount = str(round(amount, 1))  # if it's 1,5 dl, keep float
+            unit = ingredients[i]['unit']
+            ing_str = amount + " " + unit + " " + name
+            print(ing_str)
+            ingredients_list.append(ing_str)
+        ingredients_str = ', '.join(ingredients_list)
+
+        print("------------------")
+        print("RECIPE")
+        print("------------------")
+        print(first_recipe_title)
+        print(ingredients_str)
+
+        result_string = "The recipe for {} are {}.".format(first_recipe_title, ingredients_str)
+            # return [first_recipe_title, ingredients_str]
+        return [result_string]
+
 
 

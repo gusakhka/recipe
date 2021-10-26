@@ -4,7 +4,7 @@ S> What would you like to do?
 --- recipe (incremental)
 S> What would you like to do?
 U> recipe
-S> what do you feel like eating
+S> What do you feel like eating?
 U> burger
 S> What kind of meal, like main course or salad?
 U> main course
@@ -13,8 +13,15 @@ U> american
 S> Any specific diet, like vegan or vegetarian?
 U> vegetarian
 S> Do you have any allergies?
-U> peanuts
+U> peanut
 S> Ok, *
 
-
+--- recipe (one-shot)
+S> What would you like to do?
+U> I want a recipe for swedish vegan meatballs
+S> What kind of meal, like main course or salad?
+U> Any
+S> Do you have any allergies?
+U> No
+S> Ok, *
 
