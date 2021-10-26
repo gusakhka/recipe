@@ -1,0 +1,20 @@
+--- main menu
+S> What would you like to do?
+
+--- recipe (incremental)
+S> What would you like to do?
+U> recipe
+S> what do you feel like eating
+U> burger
+S> What kind of meal, like main course or salad?
+U> main course
+S> A specific cuisine, like italian or mexican?
+U> american
+S> Any specific diet, like vegan or vegetarian?
+U> vegetarian
+S> Do you have any allergies?
+U> peanuts
+S> Ok, *
+
+
+

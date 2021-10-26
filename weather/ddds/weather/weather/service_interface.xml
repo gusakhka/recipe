@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+    <query name="recipe">
+        <parameters>
+            <parameter predicate="query_search" format="grammar_entry"/>
+            <parameter predicate="meal_type_search" format="grammar_entry"/>
+            <parameter predicate="cuisine_search" format="grammar_entry"/>
+            <parameter predicate="diet_search" format="grammar_entry"/>
+            <parameter predicate="intolerances_search" format="grammar_entry"/>
+        </parameters>
+        <target>
+			<http endpoint="http://http-service/recipe"/>
+        </target>
+    </query>
+
+    <query name="ask_about_meal_type">
+		<parameters>
+		</parameters>
+			<target>
+					<http endpoint="http://http-service/recipe"/>
+			</target>
+	</query>
+
+	<query name="ask_about_diet">
+		<parameters>
+		</parameters>
+			<target>
+					<http endpoint="http://http-service/recipe"/>
+			</target>
+	</query>
+
+	<query name="ask_about_intolerances">
+		<parameters>
+		</parameters>
+			<target>
+					<http endpoint="http://http-service/recipe"/>
+			</target>
+	</query>
+
+</service_interface>

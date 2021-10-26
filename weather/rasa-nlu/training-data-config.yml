@@ -1,0 +1,587 @@
+language: "en"
+
+pipeline:
+  - name: WhitespaceTokenizer
+    case_sensitive: False
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "bert-base-uncased"
+    cache_dir: lfs
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+#  - name: DucklingEntityExtractor
+#    url: "http://duckling:8000"
+#    dimensions: []  # Add dimensions if the DDD has built-in the sorts integer or datetime e.g. ["number", "time"]
+  - name: RegexEntityExtractor
+    # text will be processed with case insensitive as default
+    case_sensitive: False
+    # use lookup tables to extract entities
+    use_lookup_tables: True
+    # use regexes to extract entities
+    use_regexes: True
+    # use match word boundaries for lookup table
+    # needs to be "False" for languages like Chinese
+    "use_word_boundaries": True
+  - name: EntitySynonymMapper
+version: "2.0"
+
+nlu:
+- intent: weather:question::temperature
+  examples: |
+    - what is the temperature
+    - what is the temperature in [Gothenburg](weather.sort.city),[Australia](weather.sort.country)
+    - what is the temperature in [Göteborg](weather.sort.city),[Iran](weather.sort.country)
+    - what is the temperature in [LONDON](weather.sort.city),[Iran](weather.sort.country)
+    - what is the temperature in [London](weather.sort.city),[Sweden](weather.sort.country)
+    - what is the temperature in [Melbourne](weather.sort.city),[Iran](weather.sort.country)
+    - what is the temperature in [Tehran](weather.sort.city),[US](weather.sort.country)
+    - what is the temperature in [gothenburg](weather.sort.city),[Iran](weather.sort.country)
+    - what is the temperature in [göteborg](weather.sort.city),[Australia](weather.sort.country)
+    - what is the temperature in [melbourne](weather.sort.city),[US](weather.sort.country)
+    - what is the temperature in [tehran](weather.sort.city),[Australia](weather.sort.country)
+    - what is the temperature in [Gothenburg](weather.sort.city)
+    - what is the temperature in [LA](weather.sort.city)
+    - what is the temperature in [Los Angeles](weather.sort.city)
+    - what is the temperature in [Melbourne](weather.sort.city)
+    - what is the temperature in [Tehran](weather.sort.city)
+    - what is the temperature in [gothenburg](weather.sort.city)
+    - what is the temperature in [göteborg](weather.sort.city)
+    - what is the temperature in [los angeles](weather.sort.city)
+    - what is the temperature in [melbourne](weather.sort.city)
+    - what is the temperature in [tehran](weather.sort.city)
+    - what is the temperature in [Australia](weather.sort.country)
+    - what is the temperature in [Sweden](weather.sort.country)
+    - what is the temperature in [US](weather.sort.country)
+    - what is the temperature in [america](weather.sort.country)
+    - what is the temperature in [sweden](weather.sort.country)
+    - what is the temperature in [the states](weather.sort.country)
+    - what is the temperature in [the united states of america](weather.sort.country)
+    - what is the temperature in [the united states](weather.sort.country)
+    - what is the temperature in [the us](weather.sort.country)
+    - what is the temperature in [us](weather.sort.country)
+    - what is the [Gothenburg](weather.sort.city) temperature
+    - what is the [Göteborg](weather.sort.city) temperature
+    - what is the [LA](weather.sort.city) temperature
+    - what is the [Los Angeles](weather.sort.city) temperature
+    - what is the [Melbourne](weather.sort.city) temperature
+    - what is the [Tehran](weather.sort.city) temperature
+    - what is the [gothenburg](weather.sort.city) temperature
+    - what is the [göteborg](weather.sort.city) temperature
+    - what is the [los angeles](weather.sort.city) temperature
+    - what is the [melbourne](weather.sort.city) temperature
+    - what is the [Sweden](weather.sort.country) temperature
+    - what is the [UK](weather.sort.country) temperature
+    - what is the [US](weather.sort.country) temperature
+    - what is the [america](weather.sort.country) temperature
+    - what is the [sweden](weather.sort.country) temperature
+    - what is the [the states](weather.sort.country) temperature
+    - what is the [the united states of america](weather.sort.country) temperature
+    - what is the [the united states](weather.sort.country) temperature
+    - what is the [the us](weather.sort.country) temperature
+    - what is the [us](weather.sort.country) temperature
+    - what is the temperature in [Celsius](weather.sort.unit)
+    - what is the temperature in [Imperial](weather.sort.unit)
+    - what is the temperature in [Kelvin](weather.sort.unit)
+    - what is the temperature in [Metric](weather.sort.unit)
+    - what is the temperature in [Standard](weather.sort.unit)
+    - what is the temperature in [celsius](weather.sort.unit)
+    - what is the temperature in [imperial](weather.sort.unit)
+    - what is the temperature in [kelvin](weather.sort.unit)
+    - what is the temperature in [metric](weather.sort.unit)
+    - what is the temperature in [standard](weather.sort.unit)
+    - what is the temperature in [LA](weather.sort.city),[UK](weather.sort.country) in [standard](weather.sort.unit)
+    - what is the temperature in [LONDON](weather.sort.city),[Sweden](weather.sort.country) in [imperial](weather.sort.unit)
+    - what is the temperature in [London](weather.sort.city),[Sweden](weather.sort.country) in [metric](weather.sort.unit)
+    - what is the temperature in [Los Angeles](weather.sort.city),[Australia](weather.sort.country) in [metric](weather.sort.unit)
+    - what is the temperature in [Melbourne](weather.sort.city),[US](weather.sort.country) in [imperial](weather.sort.unit)
+    - what is the temperature in [Tehran](weather.sort.city),[Australia](weather.sort.country) in [metric](weather.sort.unit)
+    - what is the temperature in [gothenburg](weather.sort.city),[Sweden](weather.sort.country) in [metric](weather.sort.unit)
+    - what is the temperature in [los angeles](weather.sort.city),[UK](weather.sort.country) in [imperial](weather.sort.unit)
+    - what is the temperature in [melbourne](weather.sort.city),[Sweden](weather.sort.country) in [standard](weather.sort.unit)
+    - what is the temperature in [tehran](weather.sort.city),[UK](weather.sort.country) in [metric](weather.sort.unit)
+
+- intent: weather:question::weather
+  examples: |
+    - How is the weather
+    - How is the weather in [Gothenburg](weather.sort.city),[Sweden](weather.sort.country)
+    - How is the weather in [Göteborg](weather.sort.city),[Sweden](weather.sort.country)
+    - How is the weather in [LONDON](weather.sort.city),[Sweden](weather.sort.country)
+    - How is the weather in [London](weather.sort.city),[Iran](weather.sort.country)
+    - How is the weather in [Los Angeles](weather.sort.city),[Sweden](weather.sort.country)
+    - How is the weather in [Tehran](weather.sort.city),[Sweden](weather.sort.country)
+    - How is the weather in [gothenburg](weather.sort.city),[Sweden](weather.sort.country)
+    - How is the weather in [göteborg](weather.sort.city),[Iran](weather.sort.country)
+    - How is the weather in [los angeles](weather.sort.city),[UK](weather.sort.country)
+    - How is the weather in [tehran](weather.sort.city),[US](weather.sort.country)
+    - How is the weather in [LA](weather.sort.city)
+    - How is the weather in [LONDON](weather.sort.city)
+    - How is the weather in [London](weather.sort.city)
+    - How is the weather in [Los Angeles](weather.sort.city)
+    - How is the weather in [Melbourne](weather.sort.city)
+    - How is the weather in [Tehran](weather.sort.city)
+    - How is the weather in [gothenburg](weather.sort.city)
+    - How is the weather in [los angeles](weather.sort.city)
+    - How is the weather in [melbourne](weather.sort.city)
+    - How is the weather in [tehran](weather.sort.city)
+    - How is the weather in [Australia](weather.sort.country)
+    - How is the weather in [Iran](weather.sort.country)
+    - How is the weather in [Sweden](weather.sort.country)
+    - How is the weather in [UK](weather.sort.country)
+    - How is the weather in [US](weather.sort.country)
+    - How is the weather in [australia](weather.sort.country)
+    - How is the weather in [iran](weather.sort.country)
+    - How is the weather in [sweden](weather.sort.country)
+    - How is the weather in [uk](weather.sort.country)
+    - How is the weather in [us](weather.sort.country)
+    - How is the [Gothenburg](weather.sort.city) weather
+    - How is the [Göteborg](weather.sort.city) weather
+    - How is the [LA](weather.sort.city) weather
+    - How is the [LONDON](weather.sort.city) weather
+    - How is the [London](weather.sort.city) weather
+    - How is the [Los Angeles](weather.sort.city) weather
+    - How is the [gothenburg](weather.sort.city) weather
+    - How is the [göteborg](weather.sort.city) weather
+    - How is the [los angeles](weather.sort.city) weather
+    - How is the [melbourne](weather.sort.city) weather
+    - How is the [Australia](weather.sort.country)weather
+    - How is the [Iran](weather.sort.country)weather
+    - How is the [Sweden](weather.sort.country)weather
+    - How is the [UK](weather.sort.country)weather
+    - How is the [US](weather.sort.country)weather
+    - How is the [australia](weather.sort.country)weather
+    - How is the [iran](weather.sort.country)weather
+    - How is the [sweden](weather.sort.country)weather
+    - How is the [uk](weather.sort.country)weather
+    - How is the [us](weather.sort.country)weather
+
+- intent: weather:answer
+  examples: |
+    - [LONDON](weather.sort.city)
+    - [London](weather.sort.city)
+    - [gothenburg](weather.sort.city)
+    - [Gothenburg](weather.sort.city)
+    - [göteborg](weather.sort.city)
+    - [Göteborg](weather.sort.city)
+    - [los angeles](weather.sort.city)
+    - [Los Angeles](weather.sort.city)
+    - [LA](weather.sort.city)
+    - [melbourne](weather.sort.city)
+    - [Melbourne](weather.sort.city)
+    - [Tehran](weather.sort.city)
+    - [tehran](weather.sort.city)
+    - [UK](weather.sort.country)
+    - [uk](weather.sort.country)
+    - [Sweden](weather.sort.country)
+    - [sweden](weather.sort.country)
+    - [US](weather.sort.country)
+    - [us](weather.sort.country)
+    - [the us](weather.sort.country)
+    - [the states](weather.sort.country)
+    - [the united states](weather.sort.country)
+    - [the united states of america](weather.sort.country)
+    - [america](weather.sort.country)
+    - [Australia](weather.sort.country)
+    - [australia](weather.sort.country)
+    - [Iran](weather.sort.country)
+    - [iran](weather.sort.country)
+    - [single](weather.sort.string)
+    - [double word](weather.sort.string)
+    - [three in one](weather.sort.string)
+    - [hey make it four](weather.sort.string)
+    - [the more the merrier five](weather.sort.string)
+    - [calm down and count to six](weather.sort.string)
+    - [bring them through to the jolly seven](weather.sort.string)
+    - [noone counts toes like an eight toed guy](weather.sort.string)
+    - [it matters to make sense for nine of us](weather.sort.string)
+    - [would you bring ten or none to a desert island](weather.sort.string)
+    - [standard](weather.sort.unit)
+    - [Standard](weather.sort.unit)
+    - [kelvin](weather.sort.unit)
+    - [Kelvin](weather.sort.unit)
+    - [metric](weather.sort.unit)
+    - [Metric](weather.sort.unit)
+    - [celsius](weather.sort.unit)
+    - [Celsius](weather.sort.unit)
+    - [imperial](weather.sort.unit)
+    - [Imperial](weather.sort.unit)
+    - [fahrenheit](weather.sort.unit)
+    - [Fahrenheit](weather.sort.unit)
+    - yes [LONDON](weather.sort.city)
+    - yes [Melbourne](weather.sort.city)
+    - yes [the states](weather.sort.country)
+    - yes [three in one](weather.sort.string)
+    - yes [kelvin](weather.sort.unit)
+    - no [London](weather.sort.city)
+    - no [Tehran](weather.sort.city)
+    - no [the united states](weather.sort.country)
+    - no [hey make it four](weather.sort.string)
+    - no [Kelvin](weather.sort.unit)
+
+- intent: weather:answer_negation
+  examples: |
+    - not [LONDON](weather.sort.city)
+    - not [London](weather.sort.city)
+    - not [gothenburg](weather.sort.city)
+    - not [Gothenburg](weather.sort.city)
+    - not [göteborg](weather.sort.city)
+    - not [Göteborg](weather.sort.city)
+    - not [los angeles](weather.sort.city)
+    - not [Los Angeles](weather.sort.city)
+    - not [LA](weather.sort.city)
+    - not [melbourne](weather.sort.city)
+    - not [Melbourne](weather.sort.city)
+    - not [Tehran](weather.sort.city)
+    - not [tehran](weather.sort.city)
+    - not [UK](weather.sort.country)
+    - not [uk](weather.sort.country)
+    - not [Sweden](weather.sort.country)
+    - not [sweden](weather.sort.country)
+    - not [US](weather.sort.country)
+    - not [us](weather.sort.country)
+    - not [the us](weather.sort.country)
+    - not [the states](weather.sort.country)
+    - not [the united states](weather.sort.country)
+    - not [the united states of america](weather.sort.country)
+    - not [america](weather.sort.country)
+    - not [Australia](weather.sort.country)
+    - not [australia](weather.sort.country)
+    - not [Iran](weather.sort.country)
+    - not [iran](weather.sort.country)
+    - not [standard](weather.sort.unit)
+    - not [Standard](weather.sort.unit)
+    - not [kelvin](weather.sort.unit)
+    - not [Kelvin](weather.sort.unit)
+    - not [metric](weather.sort.unit)
+    - not [Metric](weather.sort.unit)
+    - not [celsius](weather.sort.unit)
+    - not [Celsius](weather.sort.unit)
+    - not [imperial](weather.sort.unit)
+    - not [Imperial](weather.sort.unit)
+    - not [fahrenheit](weather.sort.unit)
+    - not [Fahrenheit](weather.sort.unit)
+
+- intent: NEGATIVE
+  examples: |
+    - aboard
+    - about
+    - above
+    - across
+    - after
+    - against
+    - along
+    - among
+    - as
+    - at
+    - on
+    - atop
+    - before
+    - behind
+    - below
+    - beneath
+    - beside
+    - between
+    - beyond
+    - but
+    - by
+    - come
+    - down
+    - during
+    - except
+    - for
+    - from
+    - in
+    - inside
+    - into
+    - less
+    - like
+    - near
+    - of
+    - off
+    - on
+    - onto
+    - opposite
+    - out
+    - outside
+    - over
+    - past
+    - save
+    - short
+    - since
+    - than
+    - then
+    - through
+    - throughout
+    - to
+    - toward
+    - under
+    - underneath
+    - unlike
+    - until
+    - up
+    - upon
+    - with
+    - within
+    - without
+    - worth
+    - is
+    - it
+    - the
+    - a
+    - am
+    - are
+    - them
+    - this
+    - that
+    - I
+    - you
+    - he
+    - she
+    - they
+    - them
+    - his
+    - her
+    - my
+    - mine
+    - their
+    - your
+    - us
+    - our
+    - how
+    - how's
+    - how is
+    - how's the
+    - how is the
+    - when
+    - when's
+    - when is
+    - when is the
+    - when's the
+    - what
+    - what is
+    - what's
+    - what's the
+    - what is the
+    - why
+    - why is
+    - why's
+    - why is the
+    - why's the
+    - do
+    - make
+    - tell
+    - start
+    - stop
+    - enable
+    - disable
+    - raise
+    - lower
+    - decrease
+    - increase
+    - act
+    - determine
+    - say
+    - ask
+    - go
+    - shoot
+    - wait
+    - hang on
+    - ok
+    - show
+    - help
+
+- intent: answer:yes
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - sure
+    - ok
+    - of course
+    - very well
+    - fine
+    - right
+    - excellent
+    - okay
+    - perfect
+    - I think so
+
+- intent: answer:no
+  examples: |
+    - no
+    - nope
+    - no thanks
+    - no thank you
+    - negative
+    - don't want to
+    - don't
+    - do not
+    - please don't
+
+- intent: request:top
+  examples: |
+    - forget it
+    - never mind
+    - get me out of here
+    - start over
+    - beginning
+    - never mind that
+    - restart
+
+- intent: request:up
+  examples: |
+    - go back
+    - back
+    - previous
+    - back to the previous
+    - go to the previous
+    - go back to the previous one
+
+- intent: request:how
+  examples: |
+    - how do I do that
+    - how
+    - can you tell me how to do that
+    - I don't know how should I do that
+    - how can I do that
+
+- intent: report:done
+  examples: |
+    - I'm done
+    - done
+    - ready
+    - it's ready
+    - I'm ready
+    - completed
+    - check
+    - I have finished
+    - finished
+    - done and done
+    - it's done now
+    - okay next
+    - next
+    - next instruction
+
+- intent: icm:per*neg
+  examples: |
+    - repeat
+    - repeat it
+    - repeat that
+    - pardon
+    - sorry
+    - can you repeat that
+    - excuse me
+    - what was that
+    - what did you say
+    - come again
+
+- intent: icm:acc*neg:issue
+  examples: |
+    - I don't know
+    - I don't know that
+    - it doesn't matter
+
+- intent: thanks
+  examples: |
+    - thank you
+    - thank you very much
+    - thanks
+    - big thanks
+    - thanks a lot
+
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - good day
+    - what's up
+    - good evening
+    - good morning
+    - hey
+
+- synonym: weather:city_london
+  examples: |
+    - LONDON
+    - London
+
+- synonym: weather:city_gothenburg
+  examples: |
+    - gothenburg
+    - Gothenburg
+    - göteborg
+    - Göteborg
+
+- synonym: weather:city_LA
+  examples: |
+    - los angeles
+    - Los Angeles
+    - LA
+
+- synonym: weather:city_melbourne
+  examples: |
+    - melbourne
+    - Melbourne
+
+- synonym: weather:city_Tehran
+  examples: |
+    - Tehran
+    - tehran
+
+- synonym: weather:country_UK
+  examples: |
+    - UK
+    - uk
+
+- synonym: weather:country_sweden
+  examples: |
+    - Sweden
+    - sweden
+
+- synonym: weather:country_US
+  examples: |
+    - US
+    - us
+    - the us
+    - the states
+    - the united states
+    - the united states of america
+    - america
+
+- synonym: weather:country_Australia
+  examples: |
+    - Australia
+    - australia
+
+- synonym: weather:country_Iran
+  examples: |
+    - Iran
+    - iran
+
+- synonym: weather:unit_standard
+  examples: |
+    - standard
+    - Standard
+    - kelvin
+    - Kelvin
+
+- synonym: weather:unit_metric
+  examples: |
+    - metric
+    - Metric
+    - celsius
+    - Celsius
+
+- synonym: weather:unit_imperial
+  examples: |
+    - imperial
+    - Imperial
+    - fahrenheit
+    - Fahrenheit
+
+

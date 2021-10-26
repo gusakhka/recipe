@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="recipe" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="recipe">
+    <plan>
+      <findout type="wh_question" predicate="query_search"/>
+          <findout type="wh_question" predicate="meal_type_search"/>
+          <findout type="wh_question" predicate="cuisine_search"/>
+          <findout type="wh_question" predicate="diet_search"/>
+          <findout type="wh_question" predicate="intolerances_search"/>
+        <dev_query predicate="recipe" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="ask_about_meal_type">
+    <plan>
+      <dev_query predicate="ask_about_meal_type" type="wh_question"/>
+    </plan>
+  </goal>
+  <goal type="resolve" question_type="wh_question" predicate="ask_about_diet">
+    <plan>
+      <dev_query predicate="ask_about_diet" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="ask_about_intolerances">
+    <plan>
+      <dev_query predicate="ask_about_intolerances" type="wh_question"/>
+    </plan>
+  </goal>
+
+</domain>

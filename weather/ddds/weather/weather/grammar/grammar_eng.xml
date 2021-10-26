@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+  <action name="top">
+    <one-of>
+      <item>main menu</item>
+      <item>top</item>
+      <item>beginning</item>
+      <item>cancel</item>
+      <item>forget it</item>
+      <item>never mind</item>
+      <item>abort</item>
+    </one-of>
+  </action>
+
+  <action name="up">
+    <one-of>
+      <item>up</item>
+      <item>back</item>
+      <item>go back</item>
+    </one-of>
+  </action>
+<!-- User requests -->
+  <question speaker="user" predicate="recipe" type="wh_question">
+    <one-of>
+      <item>recipe</item>
+      <item>I would like a recipe</item>
+      <item>I want a recipe</item>
+      <item>I want a <slot predicate="cuisine_search"/> recipe without <slot predicate="intolerances_search"/></item>
+      <item>I want something without <slot predicate="intolerances_search"/></item>
+      <item>I want a <slot predicate="intolerances_search"/> recipe</item>
+      <item>I'm allergic to <slot predicate="intolerances_search"/></item>
+      <item>I want a <slot predicate="meal_type_search"/>recipe</item>
+      <item>I want a recipe for <slot predicate="meal_type_search"/></item>
+      <item>I want a recipe for <slot predicate="cuisine_search"/> <slot predicate="meal_type_search"/></item>
+      <item>I want a recipe for <slot predicate="cuisine_search"/><slot predicate="diet_search"/><slot predicate="meal_type_search"/></item>
+      <item>I want a recipe for <slot predicate="cuisine_search"/><slot predicate="diet_search"/><slot predicate="query_search"/></item>
+      <item>I want a recipe for <slot predicate="intolerances_search"/> <slot predicate="cuisine_search"/> <slot predicate="query_search"/></item>
+      <item>I want a recipe for <slot predicate="intolerances_search"/> <slot predicate="query_search"/></item>
+      <item>I want to eat <slot predicate="cuisine_search"/> <slot predicate="query_search"/></item>
+    </one-of>
+  </question>
+
+<!-- Questions about parameters -->
+  <question speaker="system" predicate="query_search" type="wh_question">what do you feel like eating</question>
+  <question speaker="system" predicate="meal_type_search" type="wh_question">what kind of meal, like main course or salad</question>
+  <question speaker="system" predicate="cuisine_search" type="wh_question">a specific cuisine, like italian or mexican</question>
+  <question speaker="system" predicate="diet_search" type="wh_question">any specific diet, like vegan or vegetarian</question>
+
+<!-- Starting question -->
+  <!-- <question speaker="all" predicate="simple_recipe" type="wh_question">a simple recipe</question> -->
+  <question speaker="all" predicate="recipe" type="wh_question">a recipe</question>
+  <question speaker="all" predicate="ask_about_diet" type="wh_question">ask about diet</question>
+  <question speaker="all" predicate="ask_about_meal_type" type="wh_question">ask about meal type</question>
+  <question speaker="all" predicate="ask_about_intolerances" type="wh_question">ask about intolerances</question>
+
+<!-- Answer -->
+  <!-- <answer speaker="system" predicate="simple_recipe">The ingredients are <slot predicate="simple_recipe"/></answer> -->
+  <answer speaker="system" predicate="recipe"> Ok, <slot predicate="recipe"/></answer>
+
+  <question speaker="user" predicate="ask_about_meal_type" type="wh_question">
+    <one-of>
+      <item>what are the meals</item>
+      <item>what kind of meal types</item>
+      <item>what meals</item>
+      <item>what meal</item>
+      <item>what meal type</item>
+      <item>what meal types</item>
+    </one-of>
+  </question>
+
+  <question speaker="user" predicate="ask_about_diet" type="wh_question">
+    <one-of>
+      <item>what are the diets</item>
+      <item>what diets</item>
+      <item>what diet</item>
+      <item>what kind of diets</item>
+    </one-of>
+  </question>
+
+  <question speaker="user" predicate="ask_about_intolerances" type="wh_question">
+    <one-of>
+      <item>what intolerances</item>
+      <item>what allergies</item>
+      <item>what kind of intolerances</item>
+      <item>what intolerances</item>
+    </one-of>
+  </question>
+
+  <answer speaker="system" predicate="ask_about_meal_type"> Main course, side dish, dessert, appetizer, salad, break, breakfast, soup, beverage, sauce and drinks</answer>
+  <answer speaker="system" predicate="ask_about_diet">Pescatarian, lacto-vegetarian, ovo-vegetarian vegan or vegetarian</answer>
+  <answer speaker="system" predicate="ask_about_intolerances"> dairy, egg, gluten, peanuts, sesame, seafood, shellfish, soy or wheat</answer>
+
+  <individual name="african">african</individual>
+  <individual name="chinese">chinese</individual>
+  <individual name="japanese">japanese</individual>
+  <individual name="korean">korean</individual>
+  <individual name="vietnamese">vietnamese</individual>
+  <individual name="irish">irish</individual>
+  <individual name="indian">indian</individual>
+  <individual name="italian">italian</individual>
+  <individual name="middle_eastern">
+    <one-of>
+      <item>middle eastern</item>
+      <item>iranian</item>
+      <item>iraqi</item>
+      <item>lebanese</item>
+    </one-of>
+  </individual>
+  <individual name="american">american</individual>
+  <individual name="thai">thai</individual>
+  <individual name="nordic">
+    <one-of>
+      <item>nordic</item>
+      <item>scandinavian</item>
+      <item>swedish</item>
+      <item>danish</item>
+      <item>norwegian</item>
+      <item>finnish</item>
+    </one-of>
+  </individual>
+  <individual name="caribbean">caribbean</individual>
+  <individual name="latin_american">latin american</individual>
+  <individual name="french">french</individual>
+  <individual name="mexican">mexican</individual>
+  <individual name="spanish">spanish</individual>
+  <individual name="british">british</individual>
+  <individual name="german" >german</individual>
+  <individual name="greek">greek</individual>
+  <individual name="eastern_european">eastern european</individual>
+
+  <individual name="pescatarian">pescatarian</individual>
+  <individual name="lacto_vegetarian">lacto vegetarian</individual>
+  <individual name="ovo_vegetarian">
+    <one-of>
+      <item>ovo vegetarian</item>
+      <item>lacto ovo vegetarian</item>
+	</one-of>
+  </individual>
+  <individual name="vegan">vegan</individual>
+  <individual name="vegetarian">vegetarian</individual>
+
+  <individual name="dairy">
+    <one-of>
+      <item>dairy</item>
+      <item>milk</item>
+      <item>lactose</item>
+      <item>lactose free</item>
+      <item>lactose-free</item>
+    </one-of>
+  </individual>
+  <individual name="seafood">seafood</individual>
+  <individual name="shellfish">shellfish</individual>
+  <individual name="gluten">
+    <one-of>
+      <item>gluten</item>
+      <item>gluten free</item>
+      <item>gluten-free</item>
+    </one-of>
+  </individual>
+  <individual name="wheat">wheat</individual>
+  <individual name="egg">
+    <one-of>
+      <item>egg</item>
+      <item>eggs</item>
+    </one-of>
+  </individual>
+  <individual name="peanut">
+    <one-of>
+      <item>peanut</item>
+      <item>peanuts</item>
+    </one-of>
+  </individual>
+  <individual name="sesame">
+    <one-of>
+      <item>sesame</item>
+      <item>sesame seeds</item>
+    </one-of>
+  </individual>
+  <individual name="soy">
+    <one-of>
+      <item>soy</item>
+      <item>soy sauce</item>
+      <item>soy-sauce</item>
+    </one-of>
+  </individual>
+
+  <individual name="main_course">main course</individual>
+  <individual name="side_dish">side dish</individual>
+  <individual name="dessert">dessert</individual>
+  <individual name="appetizer">appetizer</individual>
+  <individual name="salad">salad</individual>
+  <individual name="bread">bread</individual>
+  <individual name="breakfast">breakfast</individual>
+  <individual name="soup">soup</individual>
+  <individual name="beverage">beverage</individual>
+  <individual name="sauce">sauce</individual>
+  <individual name="drink">drink</individual>
+
+  <individual name="no_meal_type">
+    <one-of>
+      <item>no</item>
+      <item>any meal</item>
+      <item>any</item>
+      <item>any type</item>
+      <item>whatever</item>
+      <item>any kind</item>
+    </one-of>
+  </individual>
+  <individual name="no_intolerances">no</individual>
+  <individual name="no_diet">no</individual>
+  <individual name="no_cuisine">no</individual>
+
+</grammar>
+
+  
