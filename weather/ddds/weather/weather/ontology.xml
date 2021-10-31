@@ -14,7 +14,7 @@
 	<predicate name="intolerances_search" sort="intolerances"/>
 	<predicate name="meal_type_search" sort="meal_type"/>
 <!-- user -->
-	<predicate name="ask_about_meal_type" sort="string"/>
+<!--	<predicate name="ask_about_meal_type" sort="string"/>   -->
 <!-- Cuisines -->
     <individual name="no_cuisine" sort="cuisine"/>
 	<individual name="african" sort="cuisine"/>
