@@ -213,5 +213,7 @@ def recipe():
 def ask_about_meal_types():
     payload = request.get_json()
     city = payload["context"]["facts"]["ask_about_meal_types"]["grammar_entry"]
-    tempstr = str(Main course, sidedish, dessert, appetizer, salad, breakbreakfast, soup, beverage, sauce , drinks)
+    data = get_data(type)
+    temp = str(payload["context"]["facts"]["meal_type_search"]["grammar_entry"])
+    tempstr = str(temp)
     return query_response(value=tempstr, grammar_entry=None)
