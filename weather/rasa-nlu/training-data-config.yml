@@ -33,164 +33,234 @@ pipeline:
 version: "2.0"
 
 nlu:
-- intent: weather:question::temperature
+- intent: weather:question::recipe
   examples: |
-    - what is the temperature
-    - what is the temperature in [Gothenburg](weather.sort.city),[Australia](weather.sort.country)
-    - what is the temperature in [Göteborg](weather.sort.city),[Iran](weather.sort.country)
-    - what is the temperature in [LONDON](weather.sort.city),[Iran](weather.sort.country)
-    - what is the temperature in [London](weather.sort.city),[Sweden](weather.sort.country)
-    - what is the temperature in [Melbourne](weather.sort.city),[Iran](weather.sort.country)
-    - what is the temperature in [Tehran](weather.sort.city),[US](weather.sort.country)
-    - what is the temperature in [gothenburg](weather.sort.city),[Iran](weather.sort.country)
-    - what is the temperature in [göteborg](weather.sort.city),[Australia](weather.sort.country)
-    - what is the temperature in [melbourne](weather.sort.city),[US](weather.sort.country)
-    - what is the temperature in [tehran](weather.sort.city),[Australia](weather.sort.country)
-    - what is the temperature in [Gothenburg](weather.sort.city)
-    - what is the temperature in [LA](weather.sort.city)
-    - what is the temperature in [Los Angeles](weather.sort.city)
-    - what is the temperature in [Melbourne](weather.sort.city)
-    - what is the temperature in [Tehran](weather.sort.city)
-    - what is the temperature in [gothenburg](weather.sort.city)
-    - what is the temperature in [göteborg](weather.sort.city)
-    - what is the temperature in [los angeles](weather.sort.city)
-    - what is the temperature in [melbourne](weather.sort.city)
-    - what is the temperature in [tehran](weather.sort.city)
-    - what is the temperature in [Australia](weather.sort.country)
-    - what is the temperature in [Sweden](weather.sort.country)
-    - what is the temperature in [US](weather.sort.country)
-    - what is the temperature in [america](weather.sort.country)
-    - what is the temperature in [sweden](weather.sort.country)
-    - what is the temperature in [the states](weather.sort.country)
-    - what is the temperature in [the united states of america](weather.sort.country)
-    - what is the temperature in [the united states](weather.sort.country)
-    - what is the temperature in [the us](weather.sort.country)
-    - what is the temperature in [us](weather.sort.country)
-    - what is the [Gothenburg](weather.sort.city) temperature
-    - what is the [Göteborg](weather.sort.city) temperature
-    - what is the [LA](weather.sort.city) temperature
-    - what is the [Los Angeles](weather.sort.city) temperature
-    - what is the [Melbourne](weather.sort.city) temperature
-    - what is the [Tehran](weather.sort.city) temperature
-    - what is the [gothenburg](weather.sort.city) temperature
-    - what is the [göteborg](weather.sort.city) temperature
-    - what is the [los angeles](weather.sort.city) temperature
-    - what is the [melbourne](weather.sort.city) temperature
-    - what is the [Sweden](weather.sort.country) temperature
-    - what is the [UK](weather.sort.country) temperature
-    - what is the [US](weather.sort.country) temperature
-    - what is the [america](weather.sort.country) temperature
-    - what is the [sweden](weather.sort.country) temperature
-    - what is the [the states](weather.sort.country) temperature
-    - what is the [the united states of america](weather.sort.country) temperature
-    - what is the [the united states](weather.sort.country) temperature
-    - what is the [the us](weather.sort.country) temperature
-    - what is the [us](weather.sort.country) temperature
-    - what is the temperature in [Celsius](weather.sort.unit)
-    - what is the temperature in [Imperial](weather.sort.unit)
-    - what is the temperature in [Kelvin](weather.sort.unit)
-    - what is the temperature in [Metric](weather.sort.unit)
-    - what is the temperature in [Standard](weather.sort.unit)
-    - what is the temperature in [celsius](weather.sort.unit)
-    - what is the temperature in [imperial](weather.sort.unit)
-    - what is the temperature in [kelvin](weather.sort.unit)
-    - what is the temperature in [metric](weather.sort.unit)
-    - what is the temperature in [standard](weather.sort.unit)
-    - what is the temperature in [LA](weather.sort.city),[UK](weather.sort.country) in [standard](weather.sort.unit)
-    - what is the temperature in [LONDON](weather.sort.city),[Sweden](weather.sort.country) in [imperial](weather.sort.unit)
-    - what is the temperature in [London](weather.sort.city),[Sweden](weather.sort.country) in [metric](weather.sort.unit)
-    - what is the temperature in [Los Angeles](weather.sort.city),[Australia](weather.sort.country) in [metric](weather.sort.unit)
-    - what is the temperature in [Melbourne](weather.sort.city),[US](weather.sort.country) in [imperial](weather.sort.unit)
-    - what is the temperature in [Tehran](weather.sort.city),[Australia](weather.sort.country) in [metric](weather.sort.unit)
-    - what is the temperature in [gothenburg](weather.sort.city),[Sweden](weather.sort.country) in [metric](weather.sort.unit)
-    - what is the temperature in [los angeles](weather.sort.city),[UK](weather.sort.country) in [imperial](weather.sort.unit)
-    - what is the temperature in [melbourne](weather.sort.city),[Sweden](weather.sort.country) in [standard](weather.sort.unit)
-    - what is the temperature in [tehran](weather.sort.city),[UK](weather.sort.country) in [metric](weather.sort.unit)
-
-- intent: weather:question::weather
-  examples: |
-    - How is the weather
-    - How is the weather in [Gothenburg](weather.sort.city),[Sweden](weather.sort.country)
-    - How is the weather in [Göteborg](weather.sort.city),[Sweden](weather.sort.country)
-    - How is the weather in [LONDON](weather.sort.city),[Sweden](weather.sort.country)
-    - How is the weather in [London](weather.sort.city),[Iran](weather.sort.country)
-    - How is the weather in [Los Angeles](weather.sort.city),[Sweden](weather.sort.country)
-    - How is the weather in [Tehran](weather.sort.city),[Sweden](weather.sort.country)
-    - How is the weather in [gothenburg](weather.sort.city),[Sweden](weather.sort.country)
-    - How is the weather in [göteborg](weather.sort.city),[Iran](weather.sort.country)
-    - How is the weather in [los angeles](weather.sort.city),[UK](weather.sort.country)
-    - How is the weather in [tehran](weather.sort.city),[US](weather.sort.country)
-    - How is the weather in [LA](weather.sort.city)
-    - How is the weather in [LONDON](weather.sort.city)
-    - How is the weather in [London](weather.sort.city)
-    - How is the weather in [Los Angeles](weather.sort.city)
-    - How is the weather in [Melbourne](weather.sort.city)
-    - How is the weather in [Tehran](weather.sort.city)
-    - How is the weather in [gothenburg](weather.sort.city)
-    - How is the weather in [los angeles](weather.sort.city)
-    - How is the weather in [melbourne](weather.sort.city)
-    - How is the weather in [tehran](weather.sort.city)
-    - How is the weather in [Australia](weather.sort.country)
-    - How is the weather in [Iran](weather.sort.country)
-    - How is the weather in [Sweden](weather.sort.country)
-    - How is the weather in [UK](weather.sort.country)
-    - How is the weather in [US](weather.sort.country)
-    - How is the weather in [australia](weather.sort.country)
-    - How is the weather in [iran](weather.sort.country)
-    - How is the weather in [sweden](weather.sort.country)
-    - How is the weather in [uk](weather.sort.country)
-    - How is the weather in [us](weather.sort.country)
-    - How is the [Gothenburg](weather.sort.city) weather
-    - How is the [Göteborg](weather.sort.city) weather
-    - How is the [LA](weather.sort.city) weather
-    - How is the [LONDON](weather.sort.city) weather
-    - How is the [London](weather.sort.city) weather
-    - How is the [Los Angeles](weather.sort.city) weather
-    - How is the [gothenburg](weather.sort.city) weather
-    - How is the [göteborg](weather.sort.city) weather
-    - How is the [los angeles](weather.sort.city) weather
-    - How is the [melbourne](weather.sort.city) weather
-    - How is the [Australia](weather.sort.country)weather
-    - How is the [Iran](weather.sort.country)weather
-    - How is the [Sweden](weather.sort.country)weather
-    - How is the [UK](weather.sort.country)weather
-    - How is the [US](weather.sort.country)weather
-    - How is the [australia](weather.sort.country)weather
-    - How is the [iran](weather.sort.country)weather
-    - How is the [sweden](weather.sort.country)weather
-    - How is the [uk](weather.sort.country)weather
-    - How is the [us](weather.sort.country)weather
+    - recipe
+    - a recipe
+    - I would like a recipe
+    - I want a recipe
+    - I want a recipe for [American](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[it matters to make sense for nine of us](weather.sort.string)
+    - I want a recipe for [USA](weather.sort.cuisine)[vegan](weather.sort.diet)[calm down and count to six](weather.sort.string)
+    - I want a recipe for [african](weather.sort.cuisine)[vegan](weather.sort.diet)[three in one](weather.sort.string)
+    - I want a recipe for [american](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[three in one](weather.sort.string)
+    - I want a recipe for [caribbean](weather.sort.cuisine)[lacto vegetarian](weather.sort.diet)[single](weather.sort.string)
+    - I want a recipe for [greek](weather.sort.cuisine)[vegetarian](weather.sort.diet)[noone counts toes like an eight toed guy](weather.sort.string)
+    - I want a recipe for [italian](weather.sort.cuisine)[vegetarian](weather.sort.diet)[three in one](weather.sort.string)
+    - I want a recipe for [korean](weather.sort.cuisine)[lacto vegetarian](weather.sort.diet)[bring them through to the jolly seven](weather.sort.string)
+    - I want a recipe for [latin american](weather.sort.cuisine)[pescetarian](weather.sort.diet)[would you bring ten or none to a desert island](weather.sort.string)
+    - I want a recipe for [usa](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[single](weather.sort.string)
+    - I want a [American](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
+    - I want a [USA](weather.sort.cuisine) recipe without [egg](weather.sort.intolerances)
+    - I want a [american](weather.sort.cuisine) recipe without [wheat](weather.sort.intolerances)
+    - I want a [caribbean](weather.sort.cuisine) recipe without [dairy](weather.sort.intolerances)
+    - I want a [eastern european](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
+    - I want a [indian](weather.sort.cuisine) recipe without [egg](weather.sort.intolerances)
+    - I want a [latin american](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
+    - I want a [spanish](weather.sort.cuisine) recipe without [no](weather.sort.intolerances)
+    - I want a [thai](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
+    - I want a [usa](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
+    - I want a [eastern european](weather.sort.cuisine) [pescetarian](weather.sort.diet) recipe without [no](weather.sort.intolerances)
+    - I want a [french](weather.sort.cuisine) [ovo vegetarian](weather.sort.diet) recipe without [sesame](weather.sort.intolerances)
+    - I want a [german](weather.sort.cuisine) [ovo vegetarian](weather.sort.diet) recipe without [soy](weather.sort.intolerances)
+    - I want a [irish](weather.sort.cuisine) [no](weather.sort.diet) recipe without [sulfite](weather.sort.intolerances)
+    - I want a [italian](weather.sort.cuisine) [no](weather.sort.diet) recipe without [soy](weather.sort.intolerances)
+    - I want a [korean](weather.sort.cuisine) [lacto vegetarian](weather.sort.diet) recipe without [wheat](weather.sort.intolerances)
+    - I want a [mexican](weather.sort.cuisine) [no](weather.sort.diet) recipe without [soy](weather.sort.intolerances)
+    - I want a [nordic](weather.sort.cuisine) [pescetarian](weather.sort.diet) recipe without [tree nut](weather.sort.intolerances)
+    - I want a [scandinavian](weather.sort.cuisine) [vegetarian](weather.sort.diet) recipe without [dairy](weather.sort.intolerances)
+    - I want a [swedish](weather.sort.cuisine) [no](weather.sort.diet) recipe without [wheat](weather.sort.intolerances)
+    - I want to eat [Swedish](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
+    - I want to eat [british](weather.sort.cuisine) [bring them through to the jolly seven](weather.sort.string)
+    - I want to eat [danish](weather.sort.cuisine) [it matters to make sense for nine of us](weather.sort.string)
+    - I want to eat [french](weather.sort.cuisine) [would you bring ten or none to a desert island](weather.sort.string)
+    - I want to eat [indian](weather.sort.cuisine) [noone counts toes like an eight toed guy](weather.sort.string)
+    - I want to eat [nordic](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
+    - I want to eat [scandinavian](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
+    - I want to eat [spanish](weather.sort.cuisine) [three in one](weather.sort.string)
+    - I want to eat [swedish](weather.sort.cuisine) [single](weather.sort.string)
+    - I want to eat [vietnamese](weather.sort.cuisine) [double word](weather.sort.string)
+    - I want something without [egg](weather.sort.intolerances)
+    - I want something without [eggs](weather.sort.intolerances)
+    - I want something without [gluten free](weather.sort.intolerances)
+    - I want something without [gluten-free](weather.sort.intolerances)
+    - I want something without [gluten](weather.sort.intolerances)
+    - I want something without [soy sauce](weather.sort.intolerances)
+    - I want something without [soy-sauce](weather.sort.intolerances)
+    - I want something without [soy](weather.sort.intolerances)
+    - I want something without [sulfite](weather.sort.intolerances)
+    - I want something without [wheat](weather.sort.intolerances)
+    - I want a [gluten free](weather.sort.intolerances) recipe
+    - I want a [gluten-free](weather.sort.intolerances) recipe
+    - I want a [gluten](weather.sort.intolerances) recipe
+    - I want a [no](weather.sort.intolerances) recipe
+    - I want a [peanut](weather.sort.intolerances) recipe
+    - I want a [peanuts](weather.sort.intolerances) recipe
+    - I want a [sesame seeds](weather.sort.intolerances) recipe
+    - I want a [sesame](weather.sort.intolerances) recipe
+    - I want a [soy](weather.sort.intolerances) recipe
+    - I want a [sulfite](weather.sort.intolerances) recipe
+    - I'm allergic to [peanut](weather.sort.intolerances)
+    - I'm allergic to [peanuts](weather.sort.intolerances)
+    - I'm allergic to [sesame seeds](weather.sort.intolerances)
+    - I'm allergic to [sesame](weather.sort.intolerances)
+    - I'm allergic to [soy sauce](weather.sort.intolerances)
+    - I'm allergic to [soy-sauce](weather.sort.intolerances)
+    - I'm allergic to [soy](weather.sort.intolerances)
+    - I'm allergic to [tree nut](weather.sort.intolerances)
+    - I'm allergic to [tree-nut](weather.sort.intolerances)
+    - I'm allergic to [wheat](weather.sort.intolerances)
+    - I want a [any kind](weather.sort.meal_type)recipe
+    - I want a [any meal](weather.sort.meal_type)recipe
+    - I want a [any type](weather.sort.meal_type)recipe
+    - I want a [any](weather.sort.meal_type)recipe
+    - I want a [bread](weather.sort.meal_type)recipe
+    - I want a [dessert](weather.sort.meal_type)recipe
+    - I want a [no](weather.sort.meal_type)recipe
+    - I want a [salad](weather.sort.meal_type)recipe
+    - I want a [soup](weather.sort.meal_type)recipe
+    - I want a [whatever](weather.sort.meal_type)recipe
+    - I want a recipe for [Main course](weather.sort.meal_type)
+    - I want a recipe for [Main dish](weather.sort.meal_type)
+    - I want a recipe for [Main](weather.sort.meal_type)
+    - I want a recipe for [appetizer](weather.sort.meal_type)
+    - I want a recipe for [breakfast](weather.sort.meal_type)
+    - I want a recipe for [dessert](weather.sort.meal_type)
+    - I want a recipe for [main course](weather.sort.meal_type)
+    - I want a recipe for [main dish](weather.sort.meal_type)
+    - I want a recipe for [main](weather.sort.meal_type)
+    - I want a recipe for [soup](weather.sort.meal_type)
+    - I want a recipe for [Iranian](weather.sort.cuisine) [beverage](weather.sort.meal_type)
+    - I want a recipe for [Middle eastern](weather.sort.cuisine) [beverage](weather.sort.meal_type)
+    - I want a recipe for [german](weather.sort.cuisine) [bread](weather.sort.meal_type)
+    - I want a recipe for [iranian](weather.sort.cuisine) [salad](weather.sort.meal_type)
+    - I want a recipe for [iraqi](weather.sort.cuisine) [no](weather.sort.meal_type)
+    - I want a recipe for [korean](weather.sort.cuisine) [beverage](weather.sort.meal_type)
+    - I want a recipe for [lebanese](weather.sort.cuisine) [salad](weather.sort.meal_type)
+    - I want a recipe for [middle eastern](weather.sort.cuisine) [breakfast](weather.sort.meal_type)
+    - I want a recipe for [no](weather.sort.cuisine) [main course](weather.sort.meal_type)
+    - I want a recipe for [spanish](weather.sort.cuisine) [drink](weather.sort.meal_type)
+    - I want a recipe for [Iranian](weather.sort.cuisine)[no](weather.sort.diet)[appetizer](weather.sort.meal_type)
+    - I want a recipe for [Middle eastern](weather.sort.cuisine)[vegetarian](weather.sort.diet)[drink](weather.sort.meal_type)
+    - I want a recipe for [eastern european](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[salad](weather.sort.meal_type)
+    - I want a recipe for [french](weather.sort.cuisine)[pescetarian](weather.sort.diet)[dessert](weather.sort.meal_type)
+    - I want a recipe for [iranian](weather.sort.cuisine)[no](weather.sort.diet)[breakfast](weather.sort.meal_type)
+    - I want a recipe for [japanese](weather.sort.cuisine)[vegan](weather.sort.diet)[side dish](weather.sort.meal_type)
+    - I want a recipe for [korean](weather.sort.cuisine)[vegan](weather.sort.diet)[side dish](weather.sort.meal_type)
+    - I want a recipe for [middle eastern](weather.sort.cuisine)[vegetarian](weather.sort.diet)[side dish](weather.sort.meal_type)
+    - I want a recipe for [no](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[breakfast](weather.sort.meal_type)
+    - I want a recipe for [vietnamese](weather.sort.cuisine)[lacto vegetarian](weather.sort.diet)[sauce](weather.sort.meal_type)
+    - I want a recipe for [dairy](weather.sort.intolerances) [french](weather.sort.cuisine) [single](weather.sort.string)
+    - I want a recipe for [gluten free](weather.sort.intolerances) [german](weather.sort.cuisine) [single](weather.sort.string)
+    - I want a recipe for [gluten-free](weather.sort.intolerances) [irish](weather.sort.cuisine) [three in one](weather.sort.string)
+    - I want a recipe for [gluten](weather.sort.intolerances) [korean](weather.sort.cuisine) [double word](weather.sort.string)
+    - I want a recipe for [milk](weather.sort.intolerances) [british](weather.sort.cuisine) [double word](weather.sort.string)
+    - I want a recipe for [no](weather.sort.intolerances) [korean](weather.sort.cuisine) [would you bring ten or none to a desert island](weather.sort.string)
+    - I want a recipe for [soy sauce](weather.sort.intolerances) [thai](weather.sort.cuisine) [hey make it four](weather.sort.string)
+    - I want a recipe for [soy-sauce](weather.sort.intolerances) [caribbean](weather.sort.cuisine) [bring them through to the jolly seven](weather.sort.string)
+    - I want a recipe for [soy](weather.sort.intolerances) [middle eastern](weather.sort.cuisine) [hey make it four](weather.sort.string)
+    - I want a recipe for [wheat](weather.sort.intolerances) [korean](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
+    - I want a recipe for [dairy](weather.sort.intolerances) [single](weather.sort.string)
+    - I want a recipe for [gluten free](weather.sort.intolerances) [hey make it four](weather.sort.string)
+    - I want a recipe for [gluten-free](weather.sort.intolerances) [it matters to make sense for nine of us](weather.sort.string)
+    - I want a recipe for [gluten](weather.sort.intolerances) [three in one](weather.sort.string)
+    - I want a recipe for [milk](weather.sort.intolerances) [the more the merrier five](weather.sort.string)
+    - I want a recipe for [peanut](weather.sort.intolerances) [double word](weather.sort.string)
+    - I want a recipe for [peanuts](weather.sort.intolerances) [noone counts toes like an eight toed guy](weather.sort.string)
+    - I want a recipe for [shellfish](weather.sort.intolerances) [single](weather.sort.string)
+    - I want a recipe for [sulfite](weather.sort.intolerances) [three in one](weather.sort.string)
+    - I want a recipe for [wheat](weather.sort.intolerances) [double word](weather.sort.string)
 
 - intent: weather:answer
   examples: |
-    - [LONDON](weather.sort.city)
-    - [London](weather.sort.city)
-    - [gothenburg](weather.sort.city)
-    - [Gothenburg](weather.sort.city)
-    - [göteborg](weather.sort.city)
-    - [Göteborg](weather.sort.city)
-    - [los angeles](weather.sort.city)
-    - [Los Angeles](weather.sort.city)
-    - [LA](weather.sort.city)
-    - [melbourne](weather.sort.city)
-    - [Melbourne](weather.sort.city)
-    - [Tehran](weather.sort.city)
-    - [tehran](weather.sort.city)
-    - [UK](weather.sort.country)
-    - [uk](weather.sort.country)
-    - [Sweden](weather.sort.country)
-    - [sweden](weather.sort.country)
-    - [US](weather.sort.country)
-    - [us](weather.sort.country)
-    - [the us](weather.sort.country)
-    - [the states](weather.sort.country)
-    - [the united states](weather.sort.country)
-    - [the united states of america](weather.sort.country)
-    - [america](weather.sort.country)
-    - [Australia](weather.sort.country)
-    - [australia](weather.sort.country)
-    - [Iran](weather.sort.country)
-    - [iran](weather.sort.country)
+    - [no](weather.sort.cuisine)
+    - [african](weather.sort.cuisine)
+    - [chinese](weather.sort.cuisine)
+    - [japanese](weather.sort.cuisine)
+    - [korean](weather.sort.cuisine)
+    - [vietnamese](weather.sort.cuisine)
+    - [irish](weather.sort.cuisine)
+    - [indian](weather.sort.cuisine)
+    - [italian](weather.sort.cuisine)
+    - [middle eastern](weather.sort.cuisine)
+    - [Middle eastern](weather.sort.cuisine)
+    - [iranian](weather.sort.cuisine)
+    - [Iranian](weather.sort.cuisine)
+    - [iraqi](weather.sort.cuisine)
+    - [lebanese](weather.sort.cuisine)
+    - [american](weather.sort.cuisine)
+    - [USA](weather.sort.cuisine)
+    - [usa](weather.sort.cuisine)
+    - [American](weather.sort.cuisine)
+    - [thai](weather.sort.cuisine)
+    - [nordic](weather.sort.cuisine)
+    - [scandinavian](weather.sort.cuisine)
+    - [swedish](weather.sort.cuisine)
+    - [Swedish](weather.sort.cuisine)
+    - [danish](weather.sort.cuisine)
+    - [norwegian](weather.sort.cuisine)
+    - [finnish](weather.sort.cuisine)
+    - [caribbean](weather.sort.cuisine)
+    - [latin american](weather.sort.cuisine)
+    - [french](weather.sort.cuisine)
+    - [mexican](weather.sort.cuisine)
+    - [spanish](weather.sort.cuisine)
+    - [british](weather.sort.cuisine)
+    - [german](weather.sort.cuisine)
+    - [greek](weather.sort.cuisine)
+    - [eastern european](weather.sort.cuisine)
+    - [no](weather.sort.diet)
+    - [pescetarian](weather.sort.diet)
+    - [lacto vegetarian](weather.sort.diet)
+    - [ovo vegetarian](weather.sort.diet)
+    - [lacto ovo vegetarian](weather.sort.diet)
+    - [vegan](weather.sort.diet)
+    - [vegetarian](weather.sort.diet)
+    - [no](weather.sort.intolerances)
+    - [sulfite](weather.sort.intolerances)
+    - [dairy](weather.sort.intolerances)
+    - [milk](weather.sort.intolerances)
+    - [lactose](weather.sort.intolerances)
+    - [lactose free](weather.sort.intolerances)
+    - [lactose-free](weather.sort.intolerances)
+    - [egg](weather.sort.intolerances)
+    - [eggs](weather.sort.intolerances)
+    - [gluten](weather.sort.intolerances)
+    - [gluten free](weather.sort.intolerances)
+    - [gluten-free](weather.sort.intolerances)
+    - [peanut](weather.sort.intolerances)
+    - [peanuts](weather.sort.intolerances)
+    - [sesame](weather.sort.intolerances)
+    - [sesame seeds](weather.sort.intolerances)
+    - [seafood](weather.sort.intolerances)
+    - [shellfish](weather.sort.intolerances)
+    - [soy](weather.sort.intolerances)
+    - [soy sauce](weather.sort.intolerances)
+    - [soy-sauce](weather.sort.intolerances)
+    - [tree nut](weather.sort.intolerances)
+    - [tree-nut](weather.sort.intolerances)
+    - [wheat](weather.sort.intolerances)
+    - [no](weather.sort.meal_type)
+    - [any meal](weather.sort.meal_type)
+    - [any](weather.sort.meal_type)
+    - [any type](weather.sort.meal_type)
+    - [whatever](weather.sort.meal_type)
+    - [any kind](weather.sort.meal_type)
+    - [main course](weather.sort.meal_type)
+    - [Main course](weather.sort.meal_type)
+    - [Main dish](weather.sort.meal_type)
+    - [main dish](weather.sort.meal_type)
+    - [Main](weather.sort.meal_type)
+    - [main](weather.sort.meal_type)
+    - [side dish](weather.sort.meal_type)
+    - [dessert](weather.sort.meal_type)
+    - [appetizer](weather.sort.meal_type)
+    - [salad](weather.sort.meal_type)
+    - [bread](weather.sort.meal_type)
+    - [breakfast](weather.sort.meal_type)
+    - [soup](weather.sort.meal_type)
+    - [beverage](weather.sort.meal_type)
+    - [sauce](weather.sort.meal_type)
+    - [drink](weather.sort.meal_type)
     - [single](weather.sort.string)
     - [double word](weather.sort.string)
     - [three in one](weather.sort.string)
@@ -201,71 +271,118 @@ nlu:
     - [noone counts toes like an eight toed guy](weather.sort.string)
     - [it matters to make sense for nine of us](weather.sort.string)
     - [would you bring ten or none to a desert island](weather.sort.string)
-    - [standard](weather.sort.unit)
-    - [Standard](weather.sort.unit)
-    - [kelvin](weather.sort.unit)
-    - [Kelvin](weather.sort.unit)
-    - [metric](weather.sort.unit)
-    - [Metric](weather.sort.unit)
-    - [celsius](weather.sort.unit)
-    - [Celsius](weather.sort.unit)
-    - [imperial](weather.sort.unit)
-    - [Imperial](weather.sort.unit)
-    - [fahrenheit](weather.sort.unit)
-    - [Fahrenheit](weather.sort.unit)
-    - yes [LONDON](weather.sort.city)
-    - yes [Melbourne](weather.sort.city)
-    - yes [the states](weather.sort.country)
-    - yes [three in one](weather.sort.string)
-    - yes [kelvin](weather.sort.unit)
-    - no [London](weather.sort.city)
-    - no [Tehran](weather.sort.city)
-    - no [the united states](weather.sort.country)
-    - no [hey make it four](weather.sort.string)
-    - no [Kelvin](weather.sort.unit)
+    - yes [no](weather.sort.cuisine)
+    - yes [Middle eastern](weather.sort.cuisine)
+    - yes [nordic](weather.sort.cuisine)
+    - yes [mexican](weather.sort.cuisine)
+    - yes [lacto ovo vegetarian](weather.sort.diet)
+    - yes [egg](weather.sort.intolerances)
+    - yes [shellfish](weather.sort.intolerances)
+    - yes [any type](weather.sort.meal_type)
+    - yes [dessert](weather.sort.meal_type)
+    - yes [double word](weather.sort.string)
+    - no [african](weather.sort.cuisine)
+    - no [iranian](weather.sort.cuisine)
+    - no [scandinavian](weather.sort.cuisine)
+    - no [spanish](weather.sort.cuisine)
+    - no [vegan](weather.sort.diet)
+    - no [eggs](weather.sort.intolerances)
+    - no [soy](weather.sort.intolerances)
+    - no [whatever](weather.sort.meal_type)
+    - no [appetizer](weather.sort.meal_type)
+    - no [three in one](weather.sort.string)
 
 - intent: weather:answer_negation
   examples: |
-    - not [LONDON](weather.sort.city)
-    - not [London](weather.sort.city)
-    - not [gothenburg](weather.sort.city)
-    - not [Gothenburg](weather.sort.city)
-    - not [göteborg](weather.sort.city)
-    - not [Göteborg](weather.sort.city)
-    - not [los angeles](weather.sort.city)
-    - not [Los Angeles](weather.sort.city)
-    - not [LA](weather.sort.city)
-    - not [melbourne](weather.sort.city)
-    - not [Melbourne](weather.sort.city)
-    - not [Tehran](weather.sort.city)
-    - not [tehran](weather.sort.city)
-    - not [UK](weather.sort.country)
-    - not [uk](weather.sort.country)
-    - not [Sweden](weather.sort.country)
-    - not [sweden](weather.sort.country)
-    - not [US](weather.sort.country)
-    - not [us](weather.sort.country)
-    - not [the us](weather.sort.country)
-    - not [the states](weather.sort.country)
-    - not [the united states](weather.sort.country)
-    - not [the united states of america](weather.sort.country)
-    - not [america](weather.sort.country)
-    - not [Australia](weather.sort.country)
-    - not [australia](weather.sort.country)
-    - not [Iran](weather.sort.country)
-    - not [iran](weather.sort.country)
-    - not [standard](weather.sort.unit)
-    - not [Standard](weather.sort.unit)
-    - not [kelvin](weather.sort.unit)
-    - not [Kelvin](weather.sort.unit)
-    - not [metric](weather.sort.unit)
-    - not [Metric](weather.sort.unit)
-    - not [celsius](weather.sort.unit)
-    - not [Celsius](weather.sort.unit)
-    - not [imperial](weather.sort.unit)
-    - not [Imperial](weather.sort.unit)
-    - not [fahrenheit](weather.sort.unit)
-    - not [Fahrenheit](weather.sort.unit)
+    - not [no](weather.sort.cuisine)
+    - not [african](weather.sort.cuisine)
+    - not [chinese](weather.sort.cuisine)
+    - not [japanese](weather.sort.cuisine)
+    - not [korean](weather.sort.cuisine)
+    - not [vietnamese](weather.sort.cuisine)
+    - not [irish](weather.sort.cuisine)
+    - not [indian](weather.sort.cuisine)
+    - not [italian](weather.sort.cuisine)
+    - not [middle eastern](weather.sort.cuisine)
+    - not [Middle eastern](weather.sort.cuisine)
+    - not [iranian](weather.sort.cuisine)
+    - not [Iranian](weather.sort.cuisine)
+    - not [iraqi](weather.sort.cuisine)
+    - not [lebanese](weather.sort.cuisine)
+    - not [american](weather.sort.cuisine)
+    - not [USA](weather.sort.cuisine)
+    - not [usa](weather.sort.cuisine)
+    - not [American](weather.sort.cuisine)
+    - not [thai](weather.sort.cuisine)
+    - not [nordic](weather.sort.cuisine)
+    - not [scandinavian](weather.sort.cuisine)
+    - not [swedish](weather.sort.cuisine)
+    - not [Swedish](weather.sort.cuisine)
+    - not [danish](weather.sort.cuisine)
+    - not [norwegian](weather.sort.cuisine)
+    - not [finnish](weather.sort.cuisine)
+    - not [caribbean](weather.sort.cuisine)
+    - not [latin american](weather.sort.cuisine)
+    - not [french](weather.sort.cuisine)
+    - not [mexican](weather.sort.cuisine)
+    - not [spanish](weather.sort.cuisine)
+    - not [british](weather.sort.cuisine)
+    - not [german](weather.sort.cuisine)
+    - not [greek](weather.sort.cuisine)
+    - not [eastern european](weather.sort.cuisine)
+    - not [no](weather.sort.diet)
+    - not [pescetarian](weather.sort.diet)
+    - not [lacto vegetarian](weather.sort.diet)
+    - not [ovo vegetarian](weather.sort.diet)
+    - not [lacto ovo vegetarian](weather.sort.diet)
+    - not [vegan](weather.sort.diet)
+    - not [vegetarian](weather.sort.diet)
+    - not [no](weather.sort.intolerances)
+    - not [sulfite](weather.sort.intolerances)
+    - not [dairy](weather.sort.intolerances)
+    - not [milk](weather.sort.intolerances)
+    - not [lactose](weather.sort.intolerances)
+    - not [lactose free](weather.sort.intolerances)
+    - not [lactose-free](weather.sort.intolerances)
+    - not [egg](weather.sort.intolerances)
+    - not [eggs](weather.sort.intolerances)
+    - not [gluten](weather.sort.intolerances)
+    - not [gluten free](weather.sort.intolerances)
+    - not [gluten-free](weather.sort.intolerances)
+    - not [peanut](weather.sort.intolerances)
+    - not [peanuts](weather.sort.intolerances)
+    - not [sesame](weather.sort.intolerances)
+    - not [sesame seeds](weather.sort.intolerances)
+    - not [seafood](weather.sort.intolerances)
+    - not [shellfish](weather.sort.intolerances)
+    - not [soy](weather.sort.intolerances)
+    - not [soy sauce](weather.sort.intolerances)
+    - not [soy-sauce](weather.sort.intolerances)
+    - not [tree nut](weather.sort.intolerances)
+    - not [tree-nut](weather.sort.intolerances)
+    - not [wheat](weather.sort.intolerances)
+    - not [no](weather.sort.meal_type)
+    - not [any meal](weather.sort.meal_type)
+    - not [any](weather.sort.meal_type)
+    - not [any type](weather.sort.meal_type)
+    - not [whatever](weather.sort.meal_type)
+    - not [any kind](weather.sort.meal_type)
+    - not [main course](weather.sort.meal_type)
+    - not [Main course](weather.sort.meal_type)
+    - not [Main dish](weather.sort.meal_type)
+    - not [main dish](weather.sort.meal_type)
+    - not [Main](weather.sort.meal_type)
+    - not [main](weather.sort.meal_type)
+    - not [side dish](weather.sort.meal_type)
+    - not [dessert](weather.sort.meal_type)
+    - not [appetizer](weather.sort.meal_type)
+    - not [salad](weather.sort.meal_type)
+    - not [bread](weather.sort.meal_type)
+    - not [breakfast](weather.sort.meal_type)
+    - not [soup](weather.sort.meal_type)
+    - not [beverage](weather.sort.meal_type)
+    - not [sauce](weather.sort.meal_type)
+    - not [drink](weather.sort.meal_type)
 
 - intent: NEGATIVE
   examples: |
@@ -505,83 +622,249 @@ nlu:
     - good morning
     - hey
 
-- synonym: weather:city_london
+- synonym: weather:no_cuisine
   examples: |
-    - LONDON
-    - London
+    - no
 
-- synonym: weather:city_gothenburg
+- synonym: weather:african
   examples: |
-    - gothenburg
-    - Gothenburg
-    - göteborg
-    - Göteborg
+    - african
 
-- synonym: weather:city_LA
+- synonym: weather:chinese
   examples: |
-    - los angeles
-    - Los Angeles
-    - LA
+    - chinese
 
-- synonym: weather:city_melbourne
+- synonym: weather:japanese
   examples: |
-    - melbourne
-    - Melbourne
+    - japanese
 
-- synonym: weather:city_Tehran
+- synonym: weather:korean
   examples: |
-    - Tehran
-    - tehran
+    - korean
 
-- synonym: weather:country_UK
+- synonym: weather:vietnamese
   examples: |
-    - UK
-    - uk
+    - vietnamese
 
-- synonym: weather:country_sweden
+- synonym: weather:irish
   examples: |
-    - Sweden
-    - sweden
+    - irish
 
-- synonym: weather:country_US
+- synonym: weather:indian
   examples: |
-    - US
-    - us
-    - the us
-    - the states
-    - the united states
-    - the united states of america
-    - america
+    - indian
 
-- synonym: weather:country_Australia
+- synonym: weather:italian
   examples: |
-    - Australia
-    - australia
+    - italian
 
-- synonym: weather:country_Iran
+- synonym: weather:middle_eastern
   examples: |
-    - Iran
-    - iran
+    - middle eastern
+    - Middle eastern
+    - iranian
+    - Iranian
+    - iraqi
+    - lebanese
 
-- synonym: weather:unit_standard
+- synonym: weather:american
   examples: |
-    - standard
-    - Standard
-    - kelvin
-    - Kelvin
+    - american
+    - USA
+    - usa
+    - American
 
-- synonym: weather:unit_metric
+- synonym: weather:thai
   examples: |
-    - metric
-    - Metric
-    - celsius
-    - Celsius
+    - thai
 
-- synonym: weather:unit_imperial
+- synonym: weather:nordic
   examples: |
-    - imperial
-    - Imperial
-    - fahrenheit
-    - Fahrenheit
+    - nordic
+    - scandinavian
+    - swedish
+    - Swedish
+    - danish
+    - norwegian
+    - finnish
+
+- synonym: weather:caribbean
+  examples: |
+    - caribbean
+
+- synonym: weather:latin_american
+  examples: |
+    - latin american
+
+- synonym: weather:french
+  examples: |
+    - french
+
+- synonym: weather:mexican
+  examples: |
+    - mexican
+
+- synonym: weather:spanish
+  examples: |
+    - spanish
+
+- synonym: weather:british
+  examples: |
+    - british
+
+- synonym: weather:german
+  examples: |
+    - german
+
+- synonym: weather:greek
+  examples: |
+    - greek
+
+- synonym: weather:eastern_european
+  examples: |
+    - eastern european
+
+- synonym: weather:no_diet
+  examples: |
+    - no
+
+- synonym: weather:pescetarian
+  examples: |
+    - pescetarian
+
+- synonym: weather:lacto_vegetarian
+  examples: |
+    - lacto vegetarian
+
+- synonym: weather:ovo_vegetarian
+  examples: |
+    - ovo vegetarian
+    - lacto ovo vegetarian
+
+- synonym: weather:vegan
+  examples: |
+    - vegan
+
+- synonym: weather:vegetarian
+  examples: |
+    - vegetarian
+
+- synonym: weather:no_intolerances
+  examples: |
+    - no
+
+- synonym: weather:sulfite
+  examples: |
+    - sulfite
+
+- synonym: weather:dairy
+  examples: |
+    - dairy
+    - milk
+    - lactose
+    - lactose free
+    - lactose-free
+
+- synonym: weather:egg
+  examples: |
+    - egg
+    - eggs
+
+- synonym: weather:gluten
+  examples: |
+    - gluten
+    - gluten free
+    - gluten-free
+
+- synonym: weather:peanut
+  examples: |
+    - peanut
+    - peanuts
+
+- synonym: weather:sesame
+  examples: |
+    - sesame
+    - sesame seeds
+
+- synonym: weather:seafood
+  examples: |
+    - seafood
+
+- synonym: weather:shellfish
+  examples: |
+    - shellfish
+
+- synonym: weather:soy
+  examples: |
+    - soy
+    - soy sauce
+    - soy-sauce
+
+- synonym: weather:tree_nut
+  examples: |
+    - tree nut
+    - tree-nut
+
+- synonym: weather:wheat
+  examples: |
+    - wheat
+
+- synonym: weather:no_meal_type
+  examples: |
+    - no
+    - any meal
+    - any
+    - any type
+    - whatever
+    - any kind
+
+- synonym: weather:main_course
+  examples: |
+    - main course
+    - Main course
+    - Main dish
+    - main dish
+    - Main
+    - main
+
+- synonym: weather:side_dish
+  examples: |
+    - side dish
+
+- synonym: weather:dessert
+  examples: |
+    - dessert
+
+- synonym: weather:appetizer
+  examples: |
+    - appetizer
+
+- synonym: weather:salad
+  examples: |
+    - salad
+
+- synonym: weather:bread
+  examples: |
+    - bread
+
+- synonym: weather:breakfast
+  examples: |
+    - breakfast
+
+- synonym: weather:soup
+  examples: |
+    - soup
+
+- synonym: weather:beverage
+  examples: |
+    - beverage
+
+- synonym: weather:sauce
+  examples: |
+    - sauce
+
+- synonym: weather:drink
+  examples: |
+    - drink
 
 

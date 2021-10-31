@@ -24,9 +24,14 @@
   <question speaker="user" predicate="recipe" type="wh_question">
     <one-of>
       <item>recipe</item>
+      <item>a recipe</item>
       <item>I would like a recipe</item>
       <item>I want a recipe</item>
+      <item>I want a recipe for <slot predicate="cuisine_search"/><slot predicate="diet_search"/><slot predicate="query_search"/></item>
       <item>I want a <slot predicate="cuisine_search"/> recipe without <slot predicate="intolerances_search"/></item>
+      <item>I want a <slot predicate="cuisine_search"/> <slot predicate="diet_search"/> recipe without <slot predicate="intolerances_search"/></item>
+      <item>I want to eat <slot predicate="cuisine_search"/> <slot predicate="query_search"/></item>
+
       <item>I want something without <slot predicate="intolerances_search"/></item>
       <item>I want a <slot predicate="intolerances_search"/> recipe</item>
       <item>I'm allergic to <slot predicate="intolerances_search"/></item>
@@ -34,10 +39,9 @@
       <item>I want a recipe for <slot predicate="meal_type_search"/></item>
       <item>I want a recipe for <slot predicate="cuisine_search"/> <slot predicate="meal_type_search"/></item>
       <item>I want a recipe for <slot predicate="cuisine_search"/><slot predicate="diet_search"/><slot predicate="meal_type_search"/></item>
-      <item>I want a recipe for <slot predicate="cuisine_search"/><slot predicate="diet_search"/><slot predicate="query_search"/></item>
       <item>I want a recipe for <slot predicate="intolerances_search"/> <slot predicate="cuisine_search"/> <slot predicate="query_search"/></item>
       <item>I want a recipe for <slot predicate="intolerances_search"/> <slot predicate="query_search"/></item>
-      <item>I want to eat <slot predicate="cuisine_search"/> <slot predicate="query_search"/></item>
+
     </one-of>
   </question>
 
@@ -56,10 +60,19 @@
 <!-- Answer -->
   <answer speaker="system" predicate="recipe"> Ok, <slot predicate="recipe"/></answer>
 
+<!-- user question -->
+<!--  <question speaker="all" predicate="ask_about_meal_type" type="wh_question">ask about meal type</question>-->
 
-<!--  <answer speaker="system" predicate="ask_about_meal_type"> Main course, side dish, dessert, appetizer, salad, break, breakfast, soup, beverage, sauce and drinks</answer>-->
-<!--  <answer speaker="system" predicate="ask_about_diet">Pescatarian, lacto-vegetarian, ovo-vegetarian vegan or vegetarian</answer>-->
-<!--  <answer speaker="system" predicate="ask_about_intolerances"> dairy, egg, gluten, peanuts, sesame, seafood, shellfish, soy or wheat</answer>-->
+  <question speaker="user" predicate="ask_about_meal_type" type="wh_question">
+    <one-of>
+      <item>what are the meals</item>
+      <item>what are the more options</item>
+      <item>Are there more options</item>
+      <item>Are the any other options</item>
+    </one-of>
+  </question>
+<!-- system Answer -->
+  <answer speaker="system" predicate="ask_about_meal_type"> Main course, side dish, dessert, appetizer, salad, break, breakfast, soup, beverage, sauce and drinks</answer>
 
   <individual name="african">african</individual>
   <individual name="chinese">chinese</individual>
@@ -72,7 +85,9 @@
   <individual name="middle_eastern">
     <one-of>
       <item>middle eastern</item>
+      <item>Middle eastern</item>
       <item>iranian</item>
+      <item>Iranian</item>
       <item>iraqi</item>
       <item>lebanese</item>
     </one-of>
@@ -91,6 +106,7 @@
       <item>nordic</item>
       <item>scandinavian</item>
       <item>swedish</item>
+      <item>Swedish</item>
       <item>danish</item>
       <item>norwegian</item>
       <item>finnish</item>
@@ -106,7 +122,7 @@
   <individual name="greek">greek</individual>
   <individual name="eastern_european">eastern european</individual>
 
-  <individual name="pescatarian">pescatarian</individual>
+  <individual name="pescetarian">pescetarian</individual>
   <individual name="lacto_vegetarian">lacto vegetarian</individual>
   <individual name="ovo_vegetarian">
     <one-of>
@@ -126,7 +142,14 @@
       <item>lactose-free</item>
     </one-of>
   </individual>
+  <individual name="sulfite">sulfite</individual>
   <individual name="seafood">seafood</individual>
+  <individual name="tree_nut">
+    <one-of>
+      <item>tree nut</item>
+      <item>tree-nut</item>
+    </one-of>
+  </individual>
   <individual name="shellfish">shellfish</individual>
   <individual name="gluten">
     <one-of>
@@ -171,7 +194,16 @@
   <individual name="garlic">garlic</individual>
 
 
-  <individual name="main_course">main course</individual>
+  <individual name="main_course">
+    <one-of>
+      <item>main course</item>
+      <item>Main course</item>
+      <item>Main dish</item>
+      <item>main dish</item>
+      <item>Main</item>
+      <item>main</item>
+    </one-of>
+  </individual>
   <individual name="side_dish">side dish</individual>
   <individual name="dessert">dessert</individual>
   <individual name="appetizer">appetizer</individual>
