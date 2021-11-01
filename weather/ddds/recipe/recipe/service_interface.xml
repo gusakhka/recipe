@@ -14,11 +14,5 @@
 			<http endpoint="http://http-service/recipe"/>
         </target>
     </query>
-<!--    <query name="ask_about_meal_type">-->
-<!--        <parameters/>-->
-<!--        <target>-->
-<!--            <http endpoint="http://http-service/ask_about_meal_types"/>-->
-<!--        </target>-->
-<!--    </query>-->
 
 </service_interface>

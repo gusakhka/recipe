@@ -19,11 +19,4 @@
   </goal>
 
 
-<!--   <goal type="resolve" question_type="wh_question" predicate="ask_about_meal_type">-->
-<!--       <plan>-->
-<!--          <invoke_service_query predicate="ask_about_meal_type" type="wh_question"/>-->
-<!--       </plan>-->
-<!--   </goal>-->
-
-
 </domain>

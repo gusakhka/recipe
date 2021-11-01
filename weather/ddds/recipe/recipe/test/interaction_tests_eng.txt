@@ -23,7 +23,7 @@ U> I want a recipe for swedish vegan meatballs
 S> What kind of meal, like main course or salad?
 U> Any
 S> Do you have any allergies?
-U> egg
+U> no
 S> Ok, *
 
 

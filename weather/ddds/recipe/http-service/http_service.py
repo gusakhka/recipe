@@ -188,7 +188,7 @@ def get_data(sort, meal_type, diet, intolerance):
     headers= {
         "content-type": 'application/json',
         'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-        'x-rapidapi-key': ''
+        'x-rapidapi-key': '86e53e2d5amshc832bc79b91d0efp1736e2jsned623e38d1c5'
         }
     response = requests.request("GET", url, headers=headers, params=querystring)
     meal= json.loads(response.content)
