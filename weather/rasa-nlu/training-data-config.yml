@@ -33,356 +33,350 @@ pipeline:
 version: "2.0"
 
 nlu:
-- intent: weather:question::recipe
+- intent: recipe:question::recipe
   examples: |
     - recipe
     - a recipe
     - I would like a recipe
     - I want a recipe
-    - I want a recipe for [American](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[it matters to make sense for nine of us](weather.sort.string)
-    - I want a recipe for [USA](weather.sort.cuisine)[vegan](weather.sort.diet)[calm down and count to six](weather.sort.string)
-    - I want a recipe for [african](weather.sort.cuisine)[vegan](weather.sort.diet)[three in one](weather.sort.string)
-    - I want a recipe for [american](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[three in one](weather.sort.string)
-    - I want a recipe for [caribbean](weather.sort.cuisine)[lacto vegetarian](weather.sort.diet)[single](weather.sort.string)
-    - I want a recipe for [greek](weather.sort.cuisine)[vegetarian](weather.sort.diet)[noone counts toes like an eight toed guy](weather.sort.string)
-    - I want a recipe for [italian](weather.sort.cuisine)[vegetarian](weather.sort.diet)[three in one](weather.sort.string)
-    - I want a recipe for [korean](weather.sort.cuisine)[lacto vegetarian](weather.sort.diet)[bring them through to the jolly seven](weather.sort.string)
-    - I want a recipe for [latin american](weather.sort.cuisine)[pescetarian](weather.sort.diet)[would you bring ten or none to a desert island](weather.sort.string)
-    - I want a recipe for [usa](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[single](weather.sort.string)
-    - I want a [American](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
-    - I want a [USA](weather.sort.cuisine) recipe without [egg](weather.sort.intolerances)
-    - I want a [american](weather.sort.cuisine) recipe without [wheat](weather.sort.intolerances)
-    - I want a [caribbean](weather.sort.cuisine) recipe without [dairy](weather.sort.intolerances)
-    - I want a [eastern european](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
-    - I want a [indian](weather.sort.cuisine) recipe without [egg](weather.sort.intolerances)
-    - I want a [latin american](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
-    - I want a [spanish](weather.sort.cuisine) recipe without [no](weather.sort.intolerances)
-    - I want a [thai](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
-    - I want a [usa](weather.sort.cuisine) recipe without [sulfite](weather.sort.intolerances)
-    - I want a [eastern european](weather.sort.cuisine) [pescetarian](weather.sort.diet) recipe without [no](weather.sort.intolerances)
-    - I want a [french](weather.sort.cuisine) [ovo vegetarian](weather.sort.diet) recipe without [sesame](weather.sort.intolerances)
-    - I want a [german](weather.sort.cuisine) [ovo vegetarian](weather.sort.diet) recipe without [soy](weather.sort.intolerances)
-    - I want a [irish](weather.sort.cuisine) [no](weather.sort.diet) recipe without [sulfite](weather.sort.intolerances)
-    - I want a [italian](weather.sort.cuisine) [no](weather.sort.diet) recipe without [soy](weather.sort.intolerances)
-    - I want a [korean](weather.sort.cuisine) [lacto vegetarian](weather.sort.diet) recipe without [wheat](weather.sort.intolerances)
-    - I want a [mexican](weather.sort.cuisine) [no](weather.sort.diet) recipe without [soy](weather.sort.intolerances)
-    - I want a [nordic](weather.sort.cuisine) [pescetarian](weather.sort.diet) recipe without [tree nut](weather.sort.intolerances)
-    - I want a [scandinavian](weather.sort.cuisine) [vegetarian](weather.sort.diet) recipe without [dairy](weather.sort.intolerances)
-    - I want a [swedish](weather.sort.cuisine) [no](weather.sort.diet) recipe without [wheat](weather.sort.intolerances)
-    - I want to eat [Swedish](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
-    - I want to eat [british](weather.sort.cuisine) [bring them through to the jolly seven](weather.sort.string)
-    - I want to eat [danish](weather.sort.cuisine) [it matters to make sense for nine of us](weather.sort.string)
-    - I want to eat [french](weather.sort.cuisine) [would you bring ten or none to a desert island](weather.sort.string)
-    - I want to eat [indian](weather.sort.cuisine) [noone counts toes like an eight toed guy](weather.sort.string)
-    - I want to eat [nordic](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
-    - I want to eat [scandinavian](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
-    - I want to eat [spanish](weather.sort.cuisine) [three in one](weather.sort.string)
-    - I want to eat [swedish](weather.sort.cuisine) [single](weather.sort.string)
-    - I want to eat [vietnamese](weather.sort.cuisine) [double word](weather.sort.string)
-    - I want something without [egg](weather.sort.intolerances)
-    - I want something without [eggs](weather.sort.intolerances)
-    - I want something without [gluten free](weather.sort.intolerances)
-    - I want something without [gluten-free](weather.sort.intolerances)
-    - I want something without [gluten](weather.sort.intolerances)
-    - I want something without [soy sauce](weather.sort.intolerances)
-    - I want something without [soy-sauce](weather.sort.intolerances)
-    - I want something without [soy](weather.sort.intolerances)
-    - I want something without [sulfite](weather.sort.intolerances)
-    - I want something without [wheat](weather.sort.intolerances)
-    - I want a [gluten free](weather.sort.intolerances) recipe
-    - I want a [gluten-free](weather.sort.intolerances) recipe
-    - I want a [gluten](weather.sort.intolerances) recipe
-    - I want a [no](weather.sort.intolerances) recipe
-    - I want a [peanut](weather.sort.intolerances) recipe
-    - I want a [peanuts](weather.sort.intolerances) recipe
-    - I want a [sesame seeds](weather.sort.intolerances) recipe
-    - I want a [sesame](weather.sort.intolerances) recipe
-    - I want a [soy](weather.sort.intolerances) recipe
-    - I want a [sulfite](weather.sort.intolerances) recipe
-    - I'm allergic to [peanut](weather.sort.intolerances)
-    - I'm allergic to [peanuts](weather.sort.intolerances)
-    - I'm allergic to [sesame seeds](weather.sort.intolerances)
-    - I'm allergic to [sesame](weather.sort.intolerances)
-    - I'm allergic to [soy sauce](weather.sort.intolerances)
-    - I'm allergic to [soy-sauce](weather.sort.intolerances)
-    - I'm allergic to [soy](weather.sort.intolerances)
-    - I'm allergic to [tree nut](weather.sort.intolerances)
-    - I'm allergic to [tree-nut](weather.sort.intolerances)
-    - I'm allergic to [wheat](weather.sort.intolerances)
-    - I want a [any kind](weather.sort.meal_type)recipe
-    - I want a [any meal](weather.sort.meal_type)recipe
-    - I want a [any type](weather.sort.meal_type)recipe
-    - I want a [any](weather.sort.meal_type)recipe
-    - I want a [bread](weather.sort.meal_type)recipe
-    - I want a [dessert](weather.sort.meal_type)recipe
-    - I want a [no](weather.sort.meal_type)recipe
-    - I want a [salad](weather.sort.meal_type)recipe
-    - I want a [soup](weather.sort.meal_type)recipe
-    - I want a [whatever](weather.sort.meal_type)recipe
-    - I want a recipe for [Main course](weather.sort.meal_type)
-    - I want a recipe for [Main dish](weather.sort.meal_type)
-    - I want a recipe for [Main](weather.sort.meal_type)
-    - I want a recipe for [appetizer](weather.sort.meal_type)
-    - I want a recipe for [breakfast](weather.sort.meal_type)
-    - I want a recipe for [dessert](weather.sort.meal_type)
-    - I want a recipe for [main course](weather.sort.meal_type)
-    - I want a recipe for [main dish](weather.sort.meal_type)
-    - I want a recipe for [main](weather.sort.meal_type)
-    - I want a recipe for [soup](weather.sort.meal_type)
-    - I want a recipe for [Iranian](weather.sort.cuisine) [beverage](weather.sort.meal_type)
-    - I want a recipe for [Middle eastern](weather.sort.cuisine) [beverage](weather.sort.meal_type)
-    - I want a recipe for [german](weather.sort.cuisine) [bread](weather.sort.meal_type)
-    - I want a recipe for [iranian](weather.sort.cuisine) [salad](weather.sort.meal_type)
-    - I want a recipe for [iraqi](weather.sort.cuisine) [no](weather.sort.meal_type)
-    - I want a recipe for [korean](weather.sort.cuisine) [beverage](weather.sort.meal_type)
-    - I want a recipe for [lebanese](weather.sort.cuisine) [salad](weather.sort.meal_type)
-    - I want a recipe for [middle eastern](weather.sort.cuisine) [breakfast](weather.sort.meal_type)
-    - I want a recipe for [no](weather.sort.cuisine) [main course](weather.sort.meal_type)
-    - I want a recipe for [spanish](weather.sort.cuisine) [drink](weather.sort.meal_type)
-    - I want a recipe for [Iranian](weather.sort.cuisine)[no](weather.sort.diet)[appetizer](weather.sort.meal_type)
-    - I want a recipe for [Middle eastern](weather.sort.cuisine)[vegetarian](weather.sort.diet)[drink](weather.sort.meal_type)
-    - I want a recipe for [eastern european](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[salad](weather.sort.meal_type)
-    - I want a recipe for [french](weather.sort.cuisine)[pescetarian](weather.sort.diet)[dessert](weather.sort.meal_type)
-    - I want a recipe for [iranian](weather.sort.cuisine)[no](weather.sort.diet)[breakfast](weather.sort.meal_type)
-    - I want a recipe for [japanese](weather.sort.cuisine)[vegan](weather.sort.diet)[side dish](weather.sort.meal_type)
-    - I want a recipe for [korean](weather.sort.cuisine)[vegan](weather.sort.diet)[side dish](weather.sort.meal_type)
-    - I want a recipe for [middle eastern](weather.sort.cuisine)[vegetarian](weather.sort.diet)[side dish](weather.sort.meal_type)
-    - I want a recipe for [no](weather.sort.cuisine)[ovo vegetarian](weather.sort.diet)[breakfast](weather.sort.meal_type)
-    - I want a recipe for [vietnamese](weather.sort.cuisine)[lacto vegetarian](weather.sort.diet)[sauce](weather.sort.meal_type)
-    - I want a recipe for [dairy](weather.sort.intolerances) [french](weather.sort.cuisine) [single](weather.sort.string)
-    - I want a recipe for [gluten free](weather.sort.intolerances) [german](weather.sort.cuisine) [single](weather.sort.string)
-    - I want a recipe for [gluten-free](weather.sort.intolerances) [irish](weather.sort.cuisine) [three in one](weather.sort.string)
-    - I want a recipe for [gluten](weather.sort.intolerances) [korean](weather.sort.cuisine) [double word](weather.sort.string)
-    - I want a recipe for [milk](weather.sort.intolerances) [british](weather.sort.cuisine) [double word](weather.sort.string)
-    - I want a recipe for [no](weather.sort.intolerances) [korean](weather.sort.cuisine) [would you bring ten or none to a desert island](weather.sort.string)
-    - I want a recipe for [soy sauce](weather.sort.intolerances) [thai](weather.sort.cuisine) [hey make it four](weather.sort.string)
-    - I want a recipe for [soy-sauce](weather.sort.intolerances) [caribbean](weather.sort.cuisine) [bring them through to the jolly seven](weather.sort.string)
-    - I want a recipe for [soy](weather.sort.intolerances) [middle eastern](weather.sort.cuisine) [hey make it four](weather.sort.string)
-    - I want a recipe for [wheat](weather.sort.intolerances) [korean](weather.sort.cuisine) [calm down and count to six](weather.sort.string)
-    - I want a recipe for [dairy](weather.sort.intolerances) [single](weather.sort.string)
-    - I want a recipe for [gluten free](weather.sort.intolerances) [hey make it four](weather.sort.string)
-    - I want a recipe for [gluten-free](weather.sort.intolerances) [it matters to make sense for nine of us](weather.sort.string)
-    - I want a recipe for [gluten](weather.sort.intolerances) [three in one](weather.sort.string)
-    - I want a recipe for [milk](weather.sort.intolerances) [the more the merrier five](weather.sort.string)
-    - I want a recipe for [peanut](weather.sort.intolerances) [double word](weather.sort.string)
-    - I want a recipe for [peanuts](weather.sort.intolerances) [noone counts toes like an eight toed guy](weather.sort.string)
-    - I want a recipe for [shellfish](weather.sort.intolerances) [single](weather.sort.string)
-    - I want a recipe for [sulfite](weather.sort.intolerances) [three in one](weather.sort.string)
-    - I want a recipe for [wheat](weather.sort.intolerances) [double word](weather.sort.string)
+    - I want a recipe for [african](recipe.sort.cuisine)[ovo vegetarian](recipe.sort.diet)[it matters to make sense for nine of us](recipe.sort.string)
+    - I want a recipe for [american](recipe.sort.cuisine)[no](recipe.sort.diet)[it matters to make sense for nine of us](recipe.sort.string)
+    - I want a recipe for [caribbean](recipe.sort.cuisine)[ovo vegetarian](recipe.sort.diet)[hey make it four](recipe.sort.string)
+    - I want a recipe for [chinese](recipe.sort.cuisine)[lacto vegetarian](recipe.sort.diet)[noone counts toes like an eight toed guy](recipe.sort.string)
+    - I want a recipe for [german](recipe.sort.cuisine)[vegetarian](recipe.sort.diet)[calm down and count to six](recipe.sort.string)
+    - I want a recipe for [korean](recipe.sort.cuisine)[pescetarian](recipe.sort.diet)[noone counts toes like an eight toed guy](recipe.sort.string)
+    - I want a recipe for [latin american](recipe.sort.cuisine)[lacto vegetarian](recipe.sort.diet)[double word](recipe.sort.string)
+    - I want a recipe for [mexican](recipe.sort.cuisine)[ovo vegetarian](recipe.sort.diet)[the more the merrier five](recipe.sort.string)
+    - I want a recipe for [no](recipe.sort.cuisine)[ovo vegetarian](recipe.sort.diet)[it matters to make sense for nine of us](recipe.sort.string)
+    - I want a recipe for [vietnamese](recipe.sort.cuisine)[lacto vegetarian](recipe.sort.diet)[bring them through to the jolly seven](recipe.sort.string)
+    - I want a [Swedish](recipe.sort.cuisine) recipe without [seafood](recipe.sort.intolerances)
+    - I want a [chinese](recipe.sort.cuisine) recipe without [wheat](recipe.sort.intolerances)
+    - I want a [danish](recipe.sort.cuisine) recipe without [sesame](recipe.sort.intolerances)
+    - I want a [finnish](recipe.sort.cuisine) recipe without [seafood](recipe.sort.intolerances)
+    - I want a [italian](recipe.sort.cuisine) recipe without [sesame](recipe.sort.intolerances)
+    - I want a [no](recipe.sort.cuisine) recipe without [peanut](recipe.sort.intolerances)
+    - I want a [nordic](recipe.sort.cuisine) recipe without [dairy](recipe.sort.intolerances)
+    - I want a [norwegian](recipe.sort.cuisine) recipe without [nothing](recipe.sort.intolerances)
+    - I want a [scandinavian](recipe.sort.cuisine) recipe without [soy](recipe.sort.intolerances)
+    - I want a [swedish](recipe.sort.cuisine) recipe without [sesame](recipe.sort.intolerances)
+    - I want a [Iranian](recipe.sort.cuisine) [no](recipe.sort.diet) recipe without [nothing](recipe.sort.intolerances)
+    - I want a [Middle eastern](recipe.sort.cuisine) [no](recipe.sort.diet) recipe without [peanut](recipe.sort.intolerances)
+    - I want a [chinese](recipe.sort.cuisine) [no](recipe.sort.diet) recipe without [dairy](recipe.sort.intolerances)
+    - I want a [iranian](recipe.sort.cuisine) [vegan](recipe.sort.diet) recipe without [soy](recipe.sort.intolerances)
+    - I want a [iraqi](recipe.sort.cuisine) [lacto vegetarian](recipe.sort.diet) recipe without [wheat](recipe.sort.intolerances)
+    - I want a [japanese](recipe.sort.cuisine) [no](recipe.sort.diet) recipe without [wheat](recipe.sort.intolerances)
+    - I want a [lebanese](recipe.sort.cuisine) [lacto vegetarian](recipe.sort.diet) recipe without [gluten](recipe.sort.intolerances)
+    - I want a [middle eastern](recipe.sort.cuisine) [ovo vegetarian](recipe.sort.diet) recipe without [wheat](recipe.sort.intolerances)
+    - I want a [no](recipe.sort.cuisine) [vegan](recipe.sort.diet) recipe without [wheat](recipe.sort.intolerances)
+    - I want a [thai](recipe.sort.cuisine) [vegan](recipe.sort.diet) recipe without [soy](recipe.sort.intolerances)
+    - I want to eat [african](recipe.sort.cuisine) [three in one](recipe.sort.string)
+    - I want to eat [eastern european](recipe.sort.cuisine) [it matters to make sense for nine of us](recipe.sort.string)
+    - I want to eat [french](recipe.sort.cuisine) [it matters to make sense for nine of us](recipe.sort.string)
+    - I want to eat [german](recipe.sort.cuisine) [bring them through to the jolly seven](recipe.sort.string)
+    - I want to eat [indian](recipe.sort.cuisine) [noone counts toes like an eight toed guy](recipe.sort.string)
+    - I want to eat [korean](recipe.sort.cuisine) [bring them through to the jolly seven](recipe.sort.string)
+    - I want to eat [no](recipe.sort.cuisine) [noone counts toes like an eight toed guy](recipe.sort.string)
+    - I want to eat [nordic](recipe.sort.cuisine) [would you bring ten or none to a desert island](recipe.sort.string)
+    - I want to eat [scandinavian](recipe.sort.cuisine) [would you bring ten or none to a desert island](recipe.sort.string)
+    - I want to eat [thai](recipe.sort.cuisine) [the more the merrier five](recipe.sort.string)
+    - I want something without [sesame seeds](recipe.sort.intolerances)
+    - I want something without [sesame](recipe.sort.intolerances)
+    - I want something without [shellfish](recipe.sort.intolerances)
+    - I want something without [soy sauce](recipe.sort.intolerances)
+    - I want something without [soy-sauce](recipe.sort.intolerances)
+    - I want something without [soy](recipe.sort.intolerances)
+    - I want something without [sulfite](recipe.sort.intolerances)
+    - I want something without [tree nut](recipe.sort.intolerances)
+    - I want something without [tree-nut](recipe.sort.intolerances)
+    - I want something without [wheat](recipe.sort.intolerances)
+    - I want a [dairy](recipe.sort.intolerances) recipe
+    - I want a [milk](recipe.sort.intolerances) recipe
+    - I want a [peanut](recipe.sort.intolerances) recipe
+    - I want a [peanuts](recipe.sort.intolerances) recipe
+    - I want a [seafood](recipe.sort.intolerances) recipe
+    - I want a [sesame seeds](recipe.sort.intolerances) recipe
+    - I want a [sesame](recipe.sort.intolerances) recipe
+    - I want a [tree nut](recipe.sort.intolerances) recipe
+    - I want a [tree-nut](recipe.sort.intolerances) recipe
+    - I want a [wheat](recipe.sort.intolerances) recipe
+    - I'm allergic to [egg](recipe.sort.intolerances)
+    - I'm allergic to [eggs](recipe.sort.intolerances)
+    - I'm allergic to [nothing](recipe.sort.intolerances)
+    - I'm allergic to [peanut](recipe.sort.intolerances)
+    - I'm allergic to [peanuts](recipe.sort.intolerances)
+    - I'm allergic to [seafood](recipe.sort.intolerances)
+    - I'm allergic to [sulfite](recipe.sort.intolerances)
+    - I'm allergic to [tree nut](recipe.sort.intolerances)
+    - I'm allergic to [tree-nut](recipe.sort.intolerances)
+    - I'm allergic to [wheat](recipe.sort.intolerances)
+    - I want a [appetizer](recipe.sort.meal_type)recipe
+    - I want a [beverage](recipe.sort.meal_type)recipe
+    - I want a [bread](recipe.sort.meal_type)recipe
+    - I want a [breakfast](recipe.sort.meal_type)recipe
+    - I want a [drink](recipe.sort.meal_type)recipe
+    - I want a [main course](recipe.sort.meal_type)recipe
+    - I want a [main dish](recipe.sort.meal_type)recipe
+    - I want a [main](recipe.sort.meal_type)recipe
+    - I want a [sauce](recipe.sort.meal_type)recipe
+    - I want a [side dish](recipe.sort.meal_type)recipe
+    - I want a recipe for [any kind](recipe.sort.meal_type)
+    - I want a recipe for [any meal](recipe.sort.meal_type)
+    - I want a recipe for [any type](recipe.sort.meal_type)
+    - I want a recipe for [any](recipe.sort.meal_type)
+    - I want a recipe for [breakfast](recipe.sort.meal_type)
+    - I want a recipe for [drink](recipe.sort.meal_type)
+    - I want a recipe for [no](recipe.sort.meal_type)
+    - I want a recipe for [salad](recipe.sort.meal_type)
+    - I want a recipe for [side dish](recipe.sort.meal_type)
+    - I want a recipe for [whatever](recipe.sort.meal_type)
+    - I want a recipe for [british](recipe.sort.cuisine) [appetizer](recipe.sort.meal_type)
+    - I want a recipe for [chinese](recipe.sort.cuisine) [main dish](recipe.sort.meal_type)
+    - I want a recipe for [eastern european](recipe.sort.cuisine) [no](recipe.sort.meal_type)
+    - I want a recipe for [greek](recipe.sort.cuisine) [main](recipe.sort.meal_type)
+    - I want a recipe for [indian](recipe.sort.cuisine) [dessert](recipe.sort.meal_type)
+    - I want a recipe for [irish](recipe.sort.cuisine) [no](recipe.sort.meal_type)
+    - I want a recipe for [japanese](recipe.sort.cuisine) [salad](recipe.sort.meal_type)
+    - I want a recipe for [latin american](recipe.sort.cuisine) [drink](recipe.sort.meal_type)
+    - I want a recipe for [mexican](recipe.sort.cuisine) [soup](recipe.sort.meal_type)
+    - I want a recipe for [no](recipe.sort.cuisine) [side dish](recipe.sort.meal_type)
+    - I want a recipe for [American](recipe.sort.cuisine)[ovo vegetarian](recipe.sort.diet)[side dish](recipe.sort.meal_type)
+    - I want a recipe for [Middle eastern](recipe.sort.cuisine)[vegan](recipe.sort.diet)[beverage](recipe.sort.meal_type)
+    - I want a recipe for [USA](recipe.sort.cuisine)[vegetarian](recipe.sort.diet)[main](recipe.sort.meal_type)
+    - I want a recipe for [african](recipe.sort.cuisine)[pescetarian](recipe.sort.diet)[beverage](recipe.sort.meal_type)
+    - I want a recipe for [american](recipe.sort.cuisine)[pescetarian](recipe.sort.diet)[main course](recipe.sort.meal_type)
+    - I want a recipe for [irish](recipe.sort.cuisine)[vegan](recipe.sort.diet)[appetizer](recipe.sort.meal_type)
+    - I want a recipe for [latin american](recipe.sort.cuisine)[lacto vegetarian](recipe.sort.diet)[dessert](recipe.sort.meal_type)
+    - I want a recipe for [middle eastern](recipe.sort.cuisine)[lacto vegetarian](recipe.sort.diet)[side dish](recipe.sort.meal_type)
+    - I want a recipe for [thai](recipe.sort.cuisine)[ovo vegetarian](recipe.sort.diet)[main course](recipe.sort.meal_type)
+    - I want a recipe for [usa](recipe.sort.cuisine)[pescetarian](recipe.sort.diet)[main dish](recipe.sort.meal_type)
+    - I want a recipe for [egg](recipe.sort.intolerances) [indian](recipe.sort.cuisine) [would you bring ten or none to a desert island](recipe.sort.string)
+    - I want a recipe for [eggs](recipe.sort.intolerances) [middle eastern](recipe.sort.cuisine) [bring them through to the jolly seven](recipe.sort.string)
+    - I want a recipe for [gluten free](recipe.sort.intolerances) [eastern european](recipe.sort.cuisine) [it matters to make sense for nine of us](recipe.sort.string)
+    - I want a recipe for [gluten](recipe.sort.intolerances) [nordic](recipe.sort.cuisine) [would you bring ten or none to a desert island](recipe.sort.string)
+    - I want a recipe for [nothing](recipe.sort.intolerances) [african](recipe.sort.cuisine) [would you bring ten or none to a desert island](recipe.sort.string)
+    - I want a recipe for [peanut](recipe.sort.intolerances) [irish](recipe.sort.cuisine) [would you bring ten or none to a desert island](recipe.sort.string)
+    - I want a recipe for [peanuts](recipe.sort.intolerances) [indian](recipe.sort.cuisine) [noone counts toes like an eight toed guy](recipe.sort.string)
+    - I want a recipe for [shellfish](recipe.sort.intolerances) [nordic](recipe.sort.cuisine) [double word](recipe.sort.string)
+    - I want a recipe for [tree nut](recipe.sort.intolerances) [caribbean](recipe.sort.cuisine) [three in one](recipe.sort.string)
+    - I want a recipe for [tree-nut](recipe.sort.intolerances) [nordic](recipe.sort.cuisine) [would you bring ten or none to a desert island](recipe.sort.string)
+    - I want a recipe for [nothing](recipe.sort.intolerances) [it matters to make sense for nine of us](recipe.sort.string)
+    - I want a recipe for [seafood](recipe.sort.intolerances) [hey make it four](recipe.sort.string)
+    - I want a recipe for [shellfish](recipe.sort.intolerances) [hey make it four](recipe.sort.string)
+    - I want a recipe for [soy sauce](recipe.sort.intolerances) [three in one](recipe.sort.string)
+    - I want a recipe for [soy-sauce](recipe.sort.intolerances) [hey make it four](recipe.sort.string)
+    - I want a recipe for [soy](recipe.sort.intolerances) [three in one](recipe.sort.string)
+    - I want a recipe for [sulfite](recipe.sort.intolerances) [double word](recipe.sort.string)
+    - I want a recipe for [tree nut](recipe.sort.intolerances) [the more the merrier five](recipe.sort.string)
+    - I want a recipe for [tree-nut](recipe.sort.intolerances) [three in one](recipe.sort.string)
+    - I want a recipe for [wheat](recipe.sort.intolerances) [the more the merrier five](recipe.sort.string)
 
-- intent: weather:answer
+- intent: recipe:answer
   examples: |
-    - [no](weather.sort.cuisine)
-    - [african](weather.sort.cuisine)
-    - [chinese](weather.sort.cuisine)
-    - [japanese](weather.sort.cuisine)
-    - [korean](weather.sort.cuisine)
-    - [vietnamese](weather.sort.cuisine)
-    - [irish](weather.sort.cuisine)
-    - [indian](weather.sort.cuisine)
-    - [italian](weather.sort.cuisine)
-    - [middle eastern](weather.sort.cuisine)
-    - [Middle eastern](weather.sort.cuisine)
-    - [iranian](weather.sort.cuisine)
-    - [Iranian](weather.sort.cuisine)
-    - [iraqi](weather.sort.cuisine)
-    - [lebanese](weather.sort.cuisine)
-    - [american](weather.sort.cuisine)
-    - [USA](weather.sort.cuisine)
-    - [usa](weather.sort.cuisine)
-    - [American](weather.sort.cuisine)
-    - [thai](weather.sort.cuisine)
-    - [nordic](weather.sort.cuisine)
-    - [scandinavian](weather.sort.cuisine)
-    - [swedish](weather.sort.cuisine)
-    - [Swedish](weather.sort.cuisine)
-    - [danish](weather.sort.cuisine)
-    - [norwegian](weather.sort.cuisine)
-    - [finnish](weather.sort.cuisine)
-    - [caribbean](weather.sort.cuisine)
-    - [latin american](weather.sort.cuisine)
-    - [french](weather.sort.cuisine)
-    - [mexican](weather.sort.cuisine)
-    - [spanish](weather.sort.cuisine)
-    - [british](weather.sort.cuisine)
-    - [german](weather.sort.cuisine)
-    - [greek](weather.sort.cuisine)
-    - [eastern european](weather.sort.cuisine)
-    - [no](weather.sort.diet)
-    - [pescetarian](weather.sort.diet)
-    - [lacto vegetarian](weather.sort.diet)
-    - [ovo vegetarian](weather.sort.diet)
-    - [lacto ovo vegetarian](weather.sort.diet)
-    - [vegan](weather.sort.diet)
-    - [vegetarian](weather.sort.diet)
-    - [no](weather.sort.intolerances)
-    - [sulfite](weather.sort.intolerances)
-    - [dairy](weather.sort.intolerances)
-    - [milk](weather.sort.intolerances)
-    - [lactose](weather.sort.intolerances)
-    - [lactose free](weather.sort.intolerances)
-    - [lactose-free](weather.sort.intolerances)
-    - [egg](weather.sort.intolerances)
-    - [eggs](weather.sort.intolerances)
-    - [gluten](weather.sort.intolerances)
-    - [gluten free](weather.sort.intolerances)
-    - [gluten-free](weather.sort.intolerances)
-    - [peanut](weather.sort.intolerances)
-    - [peanuts](weather.sort.intolerances)
-    - [sesame](weather.sort.intolerances)
-    - [sesame seeds](weather.sort.intolerances)
-    - [seafood](weather.sort.intolerances)
-    - [shellfish](weather.sort.intolerances)
-    - [soy](weather.sort.intolerances)
-    - [soy sauce](weather.sort.intolerances)
-    - [soy-sauce](weather.sort.intolerances)
-    - [tree nut](weather.sort.intolerances)
-    - [tree-nut](weather.sort.intolerances)
-    - [wheat](weather.sort.intolerances)
-    - [no](weather.sort.meal_type)
-    - [any meal](weather.sort.meal_type)
-    - [any](weather.sort.meal_type)
-    - [any type](weather.sort.meal_type)
-    - [whatever](weather.sort.meal_type)
-    - [any kind](weather.sort.meal_type)
-    - [main course](weather.sort.meal_type)
-    - [Main course](weather.sort.meal_type)
-    - [Main dish](weather.sort.meal_type)
-    - [main dish](weather.sort.meal_type)
-    - [Main](weather.sort.meal_type)
-    - [main](weather.sort.meal_type)
-    - [side dish](weather.sort.meal_type)
-    - [dessert](weather.sort.meal_type)
-    - [appetizer](weather.sort.meal_type)
-    - [salad](weather.sort.meal_type)
-    - [bread](weather.sort.meal_type)
-    - [breakfast](weather.sort.meal_type)
-    - [soup](weather.sort.meal_type)
-    - [beverage](weather.sort.meal_type)
-    - [sauce](weather.sort.meal_type)
-    - [drink](weather.sort.meal_type)
-    - [single](weather.sort.string)
-    - [double word](weather.sort.string)
-    - [three in one](weather.sort.string)
-    - [hey make it four](weather.sort.string)
-    - [the more the merrier five](weather.sort.string)
-    - [calm down and count to six](weather.sort.string)
-    - [bring them through to the jolly seven](weather.sort.string)
-    - [noone counts toes like an eight toed guy](weather.sort.string)
-    - [it matters to make sense for nine of us](weather.sort.string)
-    - [would you bring ten or none to a desert island](weather.sort.string)
-    - yes [no](weather.sort.cuisine)
-    - yes [Middle eastern](weather.sort.cuisine)
-    - yes [nordic](weather.sort.cuisine)
-    - yes [mexican](weather.sort.cuisine)
-    - yes [lacto ovo vegetarian](weather.sort.diet)
-    - yes [egg](weather.sort.intolerances)
-    - yes [shellfish](weather.sort.intolerances)
-    - yes [any type](weather.sort.meal_type)
-    - yes [dessert](weather.sort.meal_type)
-    - yes [double word](weather.sort.string)
-    - no [african](weather.sort.cuisine)
-    - no [iranian](weather.sort.cuisine)
-    - no [scandinavian](weather.sort.cuisine)
-    - no [spanish](weather.sort.cuisine)
-    - no [vegan](weather.sort.diet)
-    - no [eggs](weather.sort.intolerances)
-    - no [soy](weather.sort.intolerances)
-    - no [whatever](weather.sort.meal_type)
-    - no [appetizer](weather.sort.meal_type)
-    - no [three in one](weather.sort.string)
+    - [no](recipe.sort.cuisine)
+    - [african](recipe.sort.cuisine)
+    - [chinese](recipe.sort.cuisine)
+    - [japanese](recipe.sort.cuisine)
+    - [korean](recipe.sort.cuisine)
+    - [vietnamese](recipe.sort.cuisine)
+    - [irish](recipe.sort.cuisine)
+    - [indian](recipe.sort.cuisine)
+    - [italian](recipe.sort.cuisine)
+    - [middle eastern](recipe.sort.cuisine)
+    - [Middle eastern](recipe.sort.cuisine)
+    - [iranian](recipe.sort.cuisine)
+    - [Iranian](recipe.sort.cuisine)
+    - [iraqi](recipe.sort.cuisine)
+    - [lebanese](recipe.sort.cuisine)
+    - [american](recipe.sort.cuisine)
+    - [USA](recipe.sort.cuisine)
+    - [usa](recipe.sort.cuisine)
+    - [American](recipe.sort.cuisine)
+    - [thai](recipe.sort.cuisine)
+    - [nordic](recipe.sort.cuisine)
+    - [scandinavian](recipe.sort.cuisine)
+    - [swedish](recipe.sort.cuisine)
+    - [Swedish](recipe.sort.cuisine)
+    - [danish](recipe.sort.cuisine)
+    - [norwegian](recipe.sort.cuisine)
+    - [finnish](recipe.sort.cuisine)
+    - [caribbean](recipe.sort.cuisine)
+    - [latin american](recipe.sort.cuisine)
+    - [french](recipe.sort.cuisine)
+    - [mexican](recipe.sort.cuisine)
+    - [spanish](recipe.sort.cuisine)
+    - [british](recipe.sort.cuisine)
+    - [german](recipe.sort.cuisine)
+    - [greek](recipe.sort.cuisine)
+    - [eastern european](recipe.sort.cuisine)
+    - [no](recipe.sort.diet)
+    - [pescetarian](recipe.sort.diet)
+    - [lacto vegetarian](recipe.sort.diet)
+    - [ovo vegetarian](recipe.sort.diet)
+    - [lacto ovo vegetarian](recipe.sort.diet)
+    - [vegan](recipe.sort.diet)
+    - [vegetarian](recipe.sort.diet)
+    - [nothing](recipe.sort.intolerances)
+    - [sulfite](recipe.sort.intolerances)
+    - [dairy](recipe.sort.intolerances)
+    - [milk](recipe.sort.intolerances)
+    - [lactose](recipe.sort.intolerances)
+    - [lactose free](recipe.sort.intolerances)
+    - [lactose-free](recipe.sort.intolerances)
+    - [egg](recipe.sort.intolerances)
+    - [eggs](recipe.sort.intolerances)
+    - [gluten](recipe.sort.intolerances)
+    - [gluten free](recipe.sort.intolerances)
+    - [gluten-free](recipe.sort.intolerances)
+    - [peanut](recipe.sort.intolerances)
+    - [peanuts](recipe.sort.intolerances)
+    - [sesame](recipe.sort.intolerances)
+    - [sesame seeds](recipe.sort.intolerances)
+    - [seafood](recipe.sort.intolerances)
+    - [shellfish](recipe.sort.intolerances)
+    - [soy](recipe.sort.intolerances)
+    - [soy sauce](recipe.sort.intolerances)
+    - [soy-sauce](recipe.sort.intolerances)
+    - [tree nut](recipe.sort.intolerances)
+    - [tree-nut](recipe.sort.intolerances)
+    - [wheat](recipe.sort.intolerances)
+    - [no](recipe.sort.meal_type)
+    - [any meal](recipe.sort.meal_type)
+    - [any](recipe.sort.meal_type)
+    - [any type](recipe.sort.meal_type)
+    - [whatever](recipe.sort.meal_type)
+    - [any kind](recipe.sort.meal_type)
+    - [main](recipe.sort.meal_type)
+    - [main dish](recipe.sort.meal_type)
+    - [main course](recipe.sort.meal_type)
+    - [side dish](recipe.sort.meal_type)
+    - [dessert](recipe.sort.meal_type)
+    - [appetizer](recipe.sort.meal_type)
+    - [salad](recipe.sort.meal_type)
+    - [bread](recipe.sort.meal_type)
+    - [breakfast](recipe.sort.meal_type)
+    - [soup](recipe.sort.meal_type)
+    - [beverage](recipe.sort.meal_type)
+    - [sauce](recipe.sort.meal_type)
+    - [drink](recipe.sort.meal_type)
+    - [single](recipe.sort.string)
+    - [double word](recipe.sort.string)
+    - [three in one](recipe.sort.string)
+    - [hey make it four](recipe.sort.string)
+    - [the more the merrier five](recipe.sort.string)
+    - [calm down and count to six](recipe.sort.string)
+    - [bring them through to the jolly seven](recipe.sort.string)
+    - [noone counts toes like an eight toed guy](recipe.sort.string)
+    - [it matters to make sense for nine of us](recipe.sort.string)
+    - [would you bring ten or none to a desert island](recipe.sort.string)
+    - yes [no](recipe.sort.cuisine)
+    - yes [Middle eastern](recipe.sort.cuisine)
+    - yes [nordic](recipe.sort.cuisine)
+    - yes [mexican](recipe.sort.cuisine)
+    - yes [lacto ovo vegetarian](recipe.sort.diet)
+    - yes [egg](recipe.sort.intolerances)
+    - yes [shellfish](recipe.sort.intolerances)
+    - yes [any type](recipe.sort.meal_type)
+    - yes [bread](recipe.sort.meal_type)
+    - yes [the more the merrier five](recipe.sort.string)
+    - no [african](recipe.sort.cuisine)
+    - no [iranian](recipe.sort.cuisine)
+    - no [scandinavian](recipe.sort.cuisine)
+    - no [spanish](recipe.sort.cuisine)
+    - no [vegan](recipe.sort.diet)
+    - no [eggs](recipe.sort.intolerances)
+    - no [soy](recipe.sort.intolerances)
+    - no [whatever](recipe.sort.meal_type)
+    - no [breakfast](recipe.sort.meal_type)
+    - no [calm down and count to six](recipe.sort.string)
 
-- intent: weather:answer_negation
+- intent: recipe:answer_negation
   examples: |
-    - not [no](weather.sort.cuisine)
-    - not [african](weather.sort.cuisine)
-    - not [chinese](weather.sort.cuisine)
-    - not [japanese](weather.sort.cuisine)
-    - not [korean](weather.sort.cuisine)
-    - not [vietnamese](weather.sort.cuisine)
-    - not [irish](weather.sort.cuisine)
-    - not [indian](weather.sort.cuisine)
-    - not [italian](weather.sort.cuisine)
-    - not [middle eastern](weather.sort.cuisine)
-    - not [Middle eastern](weather.sort.cuisine)
-    - not [iranian](weather.sort.cuisine)
-    - not [Iranian](weather.sort.cuisine)
-    - not [iraqi](weather.sort.cuisine)
-    - not [lebanese](weather.sort.cuisine)
-    - not [american](weather.sort.cuisine)
-    - not [USA](weather.sort.cuisine)
-    - not [usa](weather.sort.cuisine)
-    - not [American](weather.sort.cuisine)
-    - not [thai](weather.sort.cuisine)
-    - not [nordic](weather.sort.cuisine)
-    - not [scandinavian](weather.sort.cuisine)
-    - not [swedish](weather.sort.cuisine)
-    - not [Swedish](weather.sort.cuisine)
-    - not [danish](weather.sort.cuisine)
-    - not [norwegian](weather.sort.cuisine)
-    - not [finnish](weather.sort.cuisine)
-    - not [caribbean](weather.sort.cuisine)
-    - not [latin american](weather.sort.cuisine)
-    - not [french](weather.sort.cuisine)
-    - not [mexican](weather.sort.cuisine)
-    - not [spanish](weather.sort.cuisine)
-    - not [british](weather.sort.cuisine)
-    - not [german](weather.sort.cuisine)
-    - not [greek](weather.sort.cuisine)
-    - not [eastern european](weather.sort.cuisine)
-    - not [no](weather.sort.diet)
-    - not [pescetarian](weather.sort.diet)
-    - not [lacto vegetarian](weather.sort.diet)
-    - not [ovo vegetarian](weather.sort.diet)
-    - not [lacto ovo vegetarian](weather.sort.diet)
-    - not [vegan](weather.sort.diet)
-    - not [vegetarian](weather.sort.diet)
-    - not [no](weather.sort.intolerances)
-    - not [sulfite](weather.sort.intolerances)
-    - not [dairy](weather.sort.intolerances)
-    - not [milk](weather.sort.intolerances)
-    - not [lactose](weather.sort.intolerances)
-    - not [lactose free](weather.sort.intolerances)
-    - not [lactose-free](weather.sort.intolerances)
-    - not [egg](weather.sort.intolerances)
-    - not [eggs](weather.sort.intolerances)
-    - not [gluten](weather.sort.intolerances)
-    - not [gluten free](weather.sort.intolerances)
-    - not [gluten-free](weather.sort.intolerances)
-    - not [peanut](weather.sort.intolerances)
-    - not [peanuts](weather.sort.intolerances)
-    - not [sesame](weather.sort.intolerances)
-    - not [sesame seeds](weather.sort.intolerances)
-    - not [seafood](weather.sort.intolerances)
-    - not [shellfish](weather.sort.intolerances)
-    - not [soy](weather.sort.intolerances)
-    - not [soy sauce](weather.sort.intolerances)
-    - not [soy-sauce](weather.sort.intolerances)
-    - not [tree nut](weather.sort.intolerances)
-    - not [tree-nut](weather.sort.intolerances)
-    - not [wheat](weather.sort.intolerances)
-    - not [no](weather.sort.meal_type)
-    - not [any meal](weather.sort.meal_type)
-    - not [any](weather.sort.meal_type)
-    - not [any type](weather.sort.meal_type)
-    - not [whatever](weather.sort.meal_type)
-    - not [any kind](weather.sort.meal_type)
-    - not [main course](weather.sort.meal_type)
-    - not [Main course](weather.sort.meal_type)
-    - not [Main dish](weather.sort.meal_type)
-    - not [main dish](weather.sort.meal_type)
-    - not [Main](weather.sort.meal_type)
-    - not [main](weather.sort.meal_type)
-    - not [side dish](weather.sort.meal_type)
-    - not [dessert](weather.sort.meal_type)
-    - not [appetizer](weather.sort.meal_type)
-    - not [salad](weather.sort.meal_type)
-    - not [bread](weather.sort.meal_type)
-    - not [breakfast](weather.sort.meal_type)
-    - not [soup](weather.sort.meal_type)
-    - not [beverage](weather.sort.meal_type)
-    - not [sauce](weather.sort.meal_type)
-    - not [drink](weather.sort.meal_type)
+    - not [no](recipe.sort.cuisine)
+    - not [african](recipe.sort.cuisine)
+    - not [chinese](recipe.sort.cuisine)
+    - not [japanese](recipe.sort.cuisine)
+    - not [korean](recipe.sort.cuisine)
+    - not [vietnamese](recipe.sort.cuisine)
+    - not [irish](recipe.sort.cuisine)
+    - not [indian](recipe.sort.cuisine)
+    - not [italian](recipe.sort.cuisine)
+    - not [middle eastern](recipe.sort.cuisine)
+    - not [Middle eastern](recipe.sort.cuisine)
+    - not [iranian](recipe.sort.cuisine)
+    - not [Iranian](recipe.sort.cuisine)
+    - not [iraqi](recipe.sort.cuisine)
+    - not [lebanese](recipe.sort.cuisine)
+    - not [american](recipe.sort.cuisine)
+    - not [USA](recipe.sort.cuisine)
+    - not [usa](recipe.sort.cuisine)
+    - not [American](recipe.sort.cuisine)
+    - not [thai](recipe.sort.cuisine)
+    - not [nordic](recipe.sort.cuisine)
+    - not [scandinavian](recipe.sort.cuisine)
+    - not [swedish](recipe.sort.cuisine)
+    - not [Swedish](recipe.sort.cuisine)
+    - not [danish](recipe.sort.cuisine)
+    - not [norwegian](recipe.sort.cuisine)
+    - not [finnish](recipe.sort.cuisine)
+    - not [caribbean](recipe.sort.cuisine)
+    - not [latin american](recipe.sort.cuisine)
+    - not [french](recipe.sort.cuisine)
+    - not [mexican](recipe.sort.cuisine)
+    - not [spanish](recipe.sort.cuisine)
+    - not [british](recipe.sort.cuisine)
+    - not [german](recipe.sort.cuisine)
+    - not [greek](recipe.sort.cuisine)
+    - not [eastern european](recipe.sort.cuisine)
+    - not [no](recipe.sort.diet)
+    - not [pescetarian](recipe.sort.diet)
+    - not [lacto vegetarian](recipe.sort.diet)
+    - not [ovo vegetarian](recipe.sort.diet)
+    - not [lacto ovo vegetarian](recipe.sort.diet)
+    - not [vegan](recipe.sort.diet)
+    - not [vegetarian](recipe.sort.diet)
+    - not [nothing](recipe.sort.intolerances)
+    - not [sulfite](recipe.sort.intolerances)
+    - not [dairy](recipe.sort.intolerances)
+    - not [milk](recipe.sort.intolerances)
+    - not [lactose](recipe.sort.intolerances)
+    - not [lactose free](recipe.sort.intolerances)
+    - not [lactose-free](recipe.sort.intolerances)
+    - not [egg](recipe.sort.intolerances)
+    - not [eggs](recipe.sort.intolerances)
+    - not [gluten](recipe.sort.intolerances)
+    - not [gluten free](recipe.sort.intolerances)
+    - not [gluten-free](recipe.sort.intolerances)
+    - not [peanut](recipe.sort.intolerances)
+    - not [peanuts](recipe.sort.intolerances)
+    - not [sesame](recipe.sort.intolerances)
+    - not [sesame seeds](recipe.sort.intolerances)
+    - not [seafood](recipe.sort.intolerances)
+    - not [shellfish](recipe.sort.intolerances)
+    - not [soy](recipe.sort.intolerances)
+    - not [soy sauce](recipe.sort.intolerances)
+    - not [soy-sauce](recipe.sort.intolerances)
+    - not [tree nut](recipe.sort.intolerances)
+    - not [tree-nut](recipe.sort.intolerances)
+    - not [wheat](recipe.sort.intolerances)
+    - not [no](recipe.sort.meal_type)
+    - not [any meal](recipe.sort.meal_type)
+    - not [any](recipe.sort.meal_type)
+    - not [any type](recipe.sort.meal_type)
+    - not [whatever](recipe.sort.meal_type)
+    - not [any kind](recipe.sort.meal_type)
+    - not [main](recipe.sort.meal_type)
+    - not [main dish](recipe.sort.meal_type)
+    - not [main course](recipe.sort.meal_type)
+    - not [side dish](recipe.sort.meal_type)
+    - not [dessert](recipe.sort.meal_type)
+    - not [appetizer](recipe.sort.meal_type)
+    - not [salad](recipe.sort.meal_type)
+    - not [bread](recipe.sort.meal_type)
+    - not [breakfast](recipe.sort.meal_type)
+    - not [soup](recipe.sort.meal_type)
+    - not [beverage](recipe.sort.meal_type)
+    - not [sauce](recipe.sort.meal_type)
+    - not [drink](recipe.sort.meal_type)
 
 - intent: NEGATIVE
   examples: |
@@ -622,43 +616,43 @@ nlu:
     - good morning
     - hey
 
-- synonym: weather:no_cuisine
+- synonym: recipe:no_cuisine
   examples: |
     - no
 
-- synonym: weather:african
+- synonym: recipe:african
   examples: |
     - african
 
-- synonym: weather:chinese
+- synonym: recipe:chinese
   examples: |
     - chinese
 
-- synonym: weather:japanese
+- synonym: recipe:japanese
   examples: |
     - japanese
 
-- synonym: weather:korean
+- synonym: recipe:korean
   examples: |
     - korean
 
-- synonym: weather:vietnamese
+- synonym: recipe:vietnamese
   examples: |
     - vietnamese
 
-- synonym: weather:irish
+- synonym: recipe:irish
   examples: |
     - irish
 
-- synonym: weather:indian
+- synonym: recipe:indian
   examples: |
     - indian
 
-- synonym: weather:italian
+- synonym: recipe:italian
   examples: |
     - italian
 
-- synonym: weather:middle_eastern
+- synonym: recipe:middle_eastern
   examples: |
     - middle eastern
     - Middle eastern
@@ -667,18 +661,18 @@ nlu:
     - iraqi
     - lebanese
 
-- synonym: weather:american
+- synonym: recipe:american
   examples: |
     - american
     - USA
     - usa
     - American
 
-- synonym: weather:thai
+- synonym: recipe:thai
   examples: |
     - thai
 
-- synonym: weather:nordic
+- synonym: recipe:nordic
   examples: |
     - nordic
     - scandinavian
@@ -688,76 +682,76 @@ nlu:
     - norwegian
     - finnish
 
-- synonym: weather:caribbean
+- synonym: recipe:caribbean
   examples: |
     - caribbean
 
-- synonym: weather:latin_american
+- synonym: recipe:latin_american
   examples: |
     - latin american
 
-- synonym: weather:french
+- synonym: recipe:french
   examples: |
     - french
 
-- synonym: weather:mexican
+- synonym: recipe:mexican
   examples: |
     - mexican
 
-- synonym: weather:spanish
+- synonym: recipe:spanish
   examples: |
     - spanish
 
-- synonym: weather:british
+- synonym: recipe:british
   examples: |
     - british
 
-- synonym: weather:german
+- synonym: recipe:german
   examples: |
     - german
 
-- synonym: weather:greek
+- synonym: recipe:greek
   examples: |
     - greek
 
-- synonym: weather:eastern_european
+- synonym: recipe:eastern_european
   examples: |
     - eastern european
 
-- synonym: weather:no_diet
+- synonym: recipe:no_diet
   examples: |
     - no
 
-- synonym: weather:pescetarian
+- synonym: recipe:pescetarian
   examples: |
     - pescetarian
 
-- synonym: weather:lacto_vegetarian
+- synonym: recipe:lacto_vegetarian
   examples: |
     - lacto vegetarian
 
-- synonym: weather:ovo_vegetarian
+- synonym: recipe:ovo_vegetarian
   examples: |
     - ovo vegetarian
     - lacto ovo vegetarian
 
-- synonym: weather:vegan
+- synonym: recipe:vegan
   examples: |
     - vegan
 
-- synonym: weather:vegetarian
+- synonym: recipe:vegetarian
   examples: |
     - vegetarian
 
-- synonym: weather:no_intolerances
+- synonym: recipe:no_intolerances
   examples: |
-    - no
+    - nothing
 
-- synonym: weather:sulfite
+- synonym: recipe:sulfite
   examples: |
     - sulfite
 
-- synonym: weather:dairy
+- synonym: recipe:dairy
   examples: |
     - dairy
     - milk
@@ -765,51 +759,51 @@ nlu:
     - lactose free
     - lactose-free
 
-- synonym: weather:egg
+- synonym: recipe:egg
   examples: |
     - egg
     - eggs
 
-- synonym: weather:gluten
+- synonym: recipe:gluten
   examples: |
     - gluten
     - gluten free
     - gluten-free
 
-- synonym: weather:peanut
+- synonym: recipe:peanut
   examples: |
     - peanut
     - peanuts
 
-- synonym: weather:sesame
+- synonym: recipe:sesame
   examples: |
     - sesame
     - sesame seeds
 
-- synonym: weather:seafood
+- synonym: recipe:seafood
   examples: |
     - seafood
 
-- synonym: weather:shellfish
+- synonym: recipe:shellfish
   examples: |
     - shellfish
 
-- synonym: weather:soy
+- synonym: recipe:soy
   examples: |
     - soy
     - soy sauce
     - soy-sauce
 
-- synonym: weather:tree_nut
+- synonym: recipe:tree_nut
   examples: |
     - tree nut
     - tree-nut
 
-- synonym: weather:wheat
+- synonym: recipe:wheat
   examples: |
     - wheat
 
-- synonym: weather:no_meal_type
+- synonym: recipe:no_meal_type
   examples: |
     - no
     - any meal
@@ -818,52 +812,55 @@ nlu:
     - whatever
     - any kind
 
-- synonym: weather:main_course
+- synonym: recipe:main
   examples: |
-    - main course
-    - Main course
-    - Main dish
-    - main dish
-    - Main
     - main
 
-- synonym: weather:side_dish
+- synonym: recipe:main_dish
+  examples: |
+    - main dish
+
+- synonym: recipe:main_course
+  examples: |
+    - main course
+
+- synonym: recipe:side_dish
   examples: |
     - side dish
 
-- synonym: weather:dessert
+- synonym: recipe:dessert
   examples: |
     - dessert
 
-- synonym: weather:appetizer
+- synonym: recipe:appetizer
   examples: |
     - appetizer
 
-- synonym: weather:salad
+- synonym: recipe:salad
   examples: |
     - salad
 
-- synonym: weather:bread
+- synonym: recipe:bread
   examples: |
     - bread
 
-- synonym: weather:breakfast
+- synonym: recipe:breakfast
   examples: |
     - breakfast
 
-- synonym: weather:soup
+- synonym: recipe:soup
   examples: |
     - soup
 
-- synonym: weather:beverage
+- synonym: recipe:beverage
   examples: |
     - beverage
 
-- synonym: weather:sauce
+- synonym: recipe:sauce
   examples: |
     - sauce
 
-- synonym: weather:drink
+- synonym: recipe:drink
   examples: |
     - drink
 
