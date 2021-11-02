@@ -34,7 +34,7 @@ U> tacos
 S> What kind of meal, like main course or salad?
 U> Any
 S> Any specific diet, like vegan or vegetarian?
-U> No
+U> No diet
 S> Ok, *
 
 --- recipe (one-shot) [cuisine][query]
@@ -43,9 +43,9 @@ U> I want to eat british fish and chips
 S> What kind of meal, like main course or salad?
 U> main course
 S> Any specific diet, like vegan or vegetarian?
-U> No
+U> vegetarian
 S> Do you have any allergies?
-U> peanut
+U> nothing
 S> Ok, *
 
 --- recipe [two words "query"]
@@ -54,11 +54,11 @@ U> recipe
 S> What do you feel like eating?
 U> fried chicken
 S> What kind of meal, like main course or salad?
-U> any
+U> no
 S> A specific cuisine, like italian or mexican?
 U> swedish
 S> Any specific diet, like vegan or vegetarian?
-U> no
+U> no diet
 S> Do you have any allergies?
 U> egg
 S> Ok, *

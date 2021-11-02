@@ -195,16 +195,21 @@
   <individual name="no_meal_type">
     <one-of>
       <item>no</item>
+      <item>no meal</item>
       <item>any meal</item>
       <item>any</item>
       <item>any type</item>
-      <item>whatever</item>
       <item>any kind</item>
     </one-of>
   </individual>
-  <individual name="no_intolerances">nothing</individual>
-  <individual name="no_diet">no</individual>
-  <individual name="no_cuisine">no</individual>
+  <individual name="no_intolerances">
+    <one-of>
+      <item>nothing</item>
+      <item>I have no allergy</item>
+    </one-of>
+  </individual>
+  <individual name="no_diet">no diet</individual>
+  <individual name="no_cuisine">no cuisine</individual>
 
 </grammar>
 
