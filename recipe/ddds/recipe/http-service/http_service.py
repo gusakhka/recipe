@@ -179,16 +179,25 @@ def get_intolerance(intolerance):
     return str(x)
 
 #query, cuisine, diet, meal_type, intolerances
-def get_data(sort, meal_type, diet, intolerance):
+def get_data(sort,cuisine, meal_type, diet, intolerance):
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search"
-    if intolerance == "no":
-        querystring = {"query": sort, "diet":diet,"excludeIngredients":"coconut", "type":meal_type}
+    if diet == "no diet":
+        fixeddiet = "no"
     else:
-        querystring = {"query": sort, "diet": diet, "excludeIngredients": "coconut", "type": meal_type,"intolerances":intolerance}
+        fixeddiet = diet
+    if cuisine == "no cuisine":
+        fixedcuisine = "no"
+    else:
+        fixedcuisine = cuisine
+
+    if intolerance == "nothing" or "I have no allergy":
+        querystring = {"query": sort,"cuisine":fixedcuisine, "diet":fixeddiet, "type":meal_type}
+    else:
+        querystring = {"query": sort,"cuisine":fixedcuisine, "diet": fixeddiet, "type": meal_type,"intolerances":intolerance}
     headers= {
         "content-type": 'application/json',
         'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
-        'x-rapidapi-key': 'e2d5amshc832bc79b91d0efp1736e2jsned623e38d1c5'
+        'x-rapidapi-key': '86e53e2d5amshc832bc79b91d0efp1736e2jsned623e38d1c5'
         }
     response = requests.request("GET", url, headers=headers, params=querystring)
     meal= json.loads(response.content)
@@ -206,14 +215,15 @@ def recipe():
         meal_type = str(payload["context"]["facts"]["meal_type_search"]["grammar_entry"])
         diet_type = str(payload["context"]["facts"]["diet_search"]["grammar_entry"])
         intolerance = str(payload["context"]["facts"]["intolerances_search"]["grammar_entry"])
+        cuisine = str(payload["context"]["facts"]["cuisine_search"]["grammar_entry"])
         intolerance_type=get_intolerance(intolerance)
         courseornot = meal_types()
-        print ("sort---", meal_sort)
-        print("type---", meal_type)
-        print("diet---", diet_type)
-        print("intolerance---", intolerance)
+        # print ("sort---", meal_sort)
+        # print("type---", meal_type)
+        # print("diet---", diet_type)
+        # print("intolerance---", intolerance)
         print ("this is payload",str(payload))
-        recommendation = get_data(meal_sort,courseornot, diet_type, intolerance_type)
+        recommendation = get_data(meal_sort,cuisine,courseornot, diet_type, intolerance_type)
         return query_response(value=str(recommendation), grammar_entry=None)
 def meal_types():
     payload = request.get_json()
@@ -225,11 +235,3 @@ def meal_types():
     return meal
 
 
-# @app.route("/ask_about_meal_types", methods=['POST'])
-# def ask_about_meal_types():
-#     payload = request.get_json()
-#     city = payload["context"]["facts"]["ask_about_meal_types"]["grammar_entry"]
-#     data = get_data(type)
-#     temp = str(payload["context"]["facts"]["meal_type_search"]["grammar_entry"])
-#     tempstr = str(temp)
-#     return query_response(value=tempstr, grammar_entry=None)
